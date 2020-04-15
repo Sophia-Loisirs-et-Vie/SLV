@@ -31,6 +31,9 @@ Visual Studio Code recommandé
 * Inscription adhérent
 * Aide pendant la crise: actions, dons, bénévolat
 
-## captures d'écran
+## Liens
+[Wordpress REST API](https://developer.wordpress.org/rest-api/)
+
+## Captures d'écran
 ![web](https://github.com/Sophia-Loisirs-et-Vie/SLV/blob/master/resources/screenshots/ionicreactslv.jpg?raw=true)
 ![mobile](https://github.com/Sophia-Loisirs-et-Vie/SLV/blob/master/resources/screenshots/ionicreactslvmobile.jpg?raw=true)
