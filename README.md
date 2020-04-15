@@ -32,5 +32,5 @@ Visual Studio Code recommandé
 * Aide pendant la crise: actions, dons, bénévolat
 
 ## captures d'écran
-[![web](https://github.com/Sophia-Loisirs-et-Vie/SLV/blob/master/resources/screenshots/ionicreactslv.jpg?raw=true)]
-[![mobile](https://github.com/Sophia-Loisirs-et-Vie/SLV/blob/master/resources/screenshots/ionicreactslvmobile.jpg?raw=true)]
+![web](https://github.com/Sophia-Loisirs-et-Vie/SLV/blob/master/resources/screenshots/ionicreactslv.jpg?raw=true)
+![mobile](https://github.com/Sophia-Loisirs-et-Vie/SLV/blob/master/resources/screenshots/ionicreactslvmobile.jpg?raw=true)
