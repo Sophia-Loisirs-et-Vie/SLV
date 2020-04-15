@@ -1,0 +1,7 @@
+{
+  "name": "slv",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

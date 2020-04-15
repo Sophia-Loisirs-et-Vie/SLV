@@ -1,0 +1,8 @@
+{
+  "appId": "fr.slv-valbonne.slv",
+  "appName": "slv",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {}
+}
