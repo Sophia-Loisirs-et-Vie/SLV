@@ -49,7 +49,7 @@ const Tutorial: React.FC<TutorialProps> = ({ history, setHasSeenTutorial, setMen
           <IonSlide>
             <img src="assets/img/ica-slidebox-img-1.png" alt="" className="slide-image" />
             <h2 className="slide-title">
-              Welcome to <b>ICA</b>
+              Welcome to <b>SLV</b>
             </h2>
             <p>
               The <b>ionic conference app</b> is a practical preview of the ionic framework in action, and a demonstration of proper code use.
