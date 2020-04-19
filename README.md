@@ -31,6 +31,13 @@ Visual Studio Code recommandé
 * Inscription adhérent
 * Aide pendant la crise: actions, dons, bénévolat
 
+## Git workflow
+* Fork du projet
+* Clone du projet
+* [Configuration](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork)
+* [Synchro avant de commencer à coder](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork)
+* Quand terminé et que le code compile: Commit/Push/PR
+
 ## Liens
 [Wordpress REST API](https://developer.wordpress.org/rest-api/)
 
