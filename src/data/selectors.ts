@@ -27,7 +27,7 @@ export const getFilteredAgenda = createSelector(
       })
       if (evenements.length) {
         const groupToAdd: AgendaGroup = {
-          time: group.time,
+          jour: group.jour,
           evenements
         }
         groups.push(groupToAdd);
@@ -35,7 +35,7 @@ export const getFilteredAgenda = createSelector(
     });
 
     return {
-      date: agenda.date,
+      annee: agenda.annee,
       groups
     } as Agenda;
   }
@@ -53,14 +53,14 @@ export const getSearchedAgenda = createSelector(
       const evenements = group.evenements.filter(s => s.name.toLowerCase().indexOf(searchText.toLowerCase()) > -1)
       if (evenements.length) {
         const groupToAdd: AgendaGroup = {
-          time: group.time,
+          jour: group.jour,
           evenements
         }
         groups.push(groupToAdd);
       }
     });
     return {
-      date: agenda.date,
+      annee: agenda.annee,
       groups
     } as Agenda;
   }
@@ -79,14 +79,14 @@ export const getGroupedFavoris = createSelector(
       const evenements = group.evenements.filter(s => favoriteIds.indexOf(s.id) > -1)
       if (evenements.length) {
         const groupToAdd: AgendaGroup = {
-          time: group.time,
+          jour: group.jour,
           evenements
         }
         groups.push(groupToAdd);
       }
     });
     return {
-      date: agenda.date,
+      annee: agenda.annee,
       groups
     } as Agenda;
   }

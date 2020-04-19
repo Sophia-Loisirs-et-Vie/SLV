@@ -1,10 +1,10 @@
 export interface Agenda {
-  date: string;
+  annee: string;
   groups: AgendaGroup[]
 }
 
 export interface AgendaGroup {
-  time: string;
+  jour: string;
   evenements: Evenement[];
 }
 

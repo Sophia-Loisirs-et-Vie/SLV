@@ -51,7 +51,7 @@ const EvenementList: React.FC<EvenementListProps> = ({ addFavorite, removeFavori
           <IonItemGroup key={`group-${index}`}>
             <IonItemDivider sticky>
               <IonLabel>
-                {group.time}
+                {group.jour}
               </IonLabel>
             </IonItemDivider>
             {group.evenements.map((evenement: Evenement, evenementIndex: number) => (
