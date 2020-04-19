@@ -33,8 +33,8 @@ Visual Studio Code recommandé
 
 ## Git workflow
 * Fork du projet
-* Clone du projet
-* [Configuration](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork)
+* Clone du fork du projet
+* [Configuration unique des futures synchro](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork)
 * [Synchro avant de commencer à coder](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork)
 * Quand terminé et que le code compile: Commit/Push/PR
 

@@ -175,7 +175,7 @@ exports[`renders without crashing 1`] = `
                     color="primary"
                   >
                     <ion-searchbar
-                      placeholder="Search"
+                      placeholder="Recherche"
                     />
                   </ion-toolbar>
                 </ion-header>
