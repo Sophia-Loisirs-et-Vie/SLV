@@ -1,9 +1,9 @@
 import { Location } from '../../models/Location';
 import { Speaker } from '../../models/Speaker';
-import { Agenda, Session } from '../../models/Agenda';
+import { Agenda, Evenement } from '../../models/Agenda';
 export interface ConfState {
   agenda: Agenda;
-  sessions: Session[];
+  evenements: Evenement[];
   speakers: Speaker[];
   favorites: number[];
   locations: Location[];

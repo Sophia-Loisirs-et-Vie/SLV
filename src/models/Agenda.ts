@@ -5,10 +5,10 @@ export interface Agenda {
 
 export interface AgendaGroup {
   time: string;
-  sessions: Session[];
+  evenements: Evenement[];
 }
 
-export interface Session {
+export interface Evenement {
   id: number;
   timeStart: string;
   timeEnd: string;

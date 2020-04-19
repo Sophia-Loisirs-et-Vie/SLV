@@ -1,11 +1,11 @@
 import { combineReducers } from './combineReducers';
-import { sessionsReducer } from './sessions/sessions.reducer';
+import { evenementsReducer } from './evenements/evenements.reducer';
 import { userReducer } from './user/user.reducer';
 
 export const initialState: AppState = {
   data: {
     agenda: { groups: [] } as any,
-    sessions: [],
+    evenements: [],
     speakers: [],
     favorites: [],
     locations: [],
@@ -24,7 +24,7 @@ export const initialState: AppState = {
 };
 
 export const reducers = combineReducers({
-  data: sessionsReducer,
+  data: evenementsReducer,
   user: userReducer
 });
 

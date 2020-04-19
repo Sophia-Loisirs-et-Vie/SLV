@@ -5,7 +5,7 @@ import { calendar, location, informationCircle, people } from 'ionicons/icons';
 import AgendaPage from './AgendaPage';
 import SpeakerList from './SpeakerList';
 import SpeakerDetail from './SpeakerDetail';
-import SessionDetail from './SessionDetail';
+import EvenementDetail from './EvenementDetail';
 import CarteView from './CarteView';
 import APropos from './APropos';
 
@@ -24,8 +24,8 @@ const MainTabs: React.FC<MainTabsProps> = () => {
         <Route path="/tabs/agenda" render={() => <AgendaPage />} exact={true} />
         <Route path="/tabs/speakers" render={() => <SpeakerList />} exact={true} />
         <Route path="/tabs/speakers/:id" component={SpeakerDetail} exact={true} />
-        <Route path="/tabs/agenda/:id" component={SessionDetail} />
-        <Route path="/tabs/speakers/sessions/:id" component={SessionDetail} />
+        <Route path="/tabs/agenda/:id" component={EvenementDetail} />
+        <Route path="/tabs/speakers/evenements/:id" component={EvenementDetail} />
         <Route path="/tabs/map" render={() => <CarteView />} exact={true} />
         <Route path="/tabs/apropos" render={() => <APropos />} exact={true} />
       </IonRouterOutlet>

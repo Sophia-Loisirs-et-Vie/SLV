@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { Agenda, Session, AgendaGroup } from '../models/Agenda';
+import { Agenda, Evenement, AgendaGroup } from '../models/Agenda';
 import { AppState } from './state';
 
 const getAgenda = (state: AppState) => {
@@ -7,7 +7,7 @@ const getAgenda = (state: AppState) => {
   return state.data.agenda
 };
 export const getSpeakers = (state: AppState) => state.data.speakers;
-const getSessions = (state: AppState) => state.data.sessions;
+const getEvenements = (state: AppState) => state.data.evenements;
 const getFilteredTracks = (state: AppState) => state.data.filteredTracks;
 const getFavoriteIds = (state: AppState) => state.data.favorites;
 const getSearchText = (state: AppState) => state.data.searchText;
@@ -17,18 +17,18 @@ export const getFilteredAgenda = createSelector(
   (agenda, filteredTracks) => {
     const groups: AgendaGroup[] = [];
     agenda.groups.forEach(group => {
-      const sessions: Session[] = [];
-      group.sessions.forEach(session => {
-        session.tracks.forEach(track => {
+      const evenements: Evenement[] = [];
+      group.evenements.forEach(evenement => {
+        evenement.tracks.forEach(track => {
           if (filteredTracks.indexOf(track) > -1) {
-            sessions.push(session);
+            evenements.push(evenement);
           }
         })
       })
-      if (sessions.length) {
+      if (evenements.length) {
         const groupToAdd: AgendaGroup = {
           time: group.time,
-          sessions
+          evenements
         }
         groups.push(groupToAdd);
       }
@@ -50,11 +50,11 @@ export const getSearchedAgenda = createSelector(
     const groups: AgendaGroup[] = [];
     agenda.groups.forEach(group => {
 
-      const sessions = group.sessions.filter(s => s.name.toLowerCase().indexOf(searchText.toLowerCase()) > -1)
-      if (sessions.length) {
+      const evenements = group.evenements.filter(s => s.name.toLowerCase().indexOf(searchText.toLowerCase()) > -1)
+      if (evenements.length) {
         const groupToAdd: AgendaGroup = {
           time: group.time,
-          sessions
+          evenements
         }
         groups.push(groupToAdd);
       }
@@ -76,11 +76,11 @@ export const getGroupedFavorites = createSelector(
   (agenda, favoriteIds) => {
     const groups: AgendaGroup[] = [];
     agenda.groups.forEach(group => {
-      const sessions = group.sessions.filter(s => favoriteIds.indexOf(s.id) > -1)
-      if (sessions.length) {
+      const evenements = group.evenements.filter(s => favoriteIds.indexOf(s.id) > -1)
+      if (evenements.length) {
         const groupToAdd: AgendaGroup = {
           time: group.time,
-          sessions
+          evenements
         }
         groups.push(groupToAdd);
       }
@@ -97,10 +97,10 @@ const getIdParam = (_state: AppState, props: any) => {
   return props.match.params['id'];
 }
 
-export const getSession = createSelector(
-  getSessions, getIdParam,
-  (sessions, id) => {
-    return sessions.find(s => s.id === id);
+export const getEvenement = createSelector(
+  getEvenements, getIdParam,
+  (evenements, id) => {
+    return evenements.find(s => s.id === id);
   }
 );
 
@@ -109,21 +109,21 @@ export const getSpeaker = createSelector(
   (speakers, id) => speakers.find(x => x.id === id)
 );
 
-export const getSpeakerSessions = createSelector(
-  getSessions,
-  (sessions) => {
-    const speakerSessions: { [key: string]: Session[] } = {};
+export const getSpeakerEvenements = createSelector(
+  getEvenements,
+  (evenements) => {
+    const speakerEvenements: { [key: string]: Evenement[] } = {};
 
-    sessions.forEach(session => {
-      session.speakerNames && session.speakerNames.forEach(name => {
-        if (speakerSessions[name]) {
-          speakerSessions[name].push(session);
+    evenements.forEach(evenement => {
+      evenement.speakerNames && evenement.speakerNames.forEach(name => {
+        if (speakerEvenements[name]) {
+          speakerEvenements[name].push(evenement);
         } else {
-          speakerSessions[name] = [session];
+          speakerEvenements[name] = [evenement];
         }
       })
     });
-    return speakerSessions;
+    return speakerEvenements;
   }
 );
 

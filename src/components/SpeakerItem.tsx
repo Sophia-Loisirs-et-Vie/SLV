@@ -1,15 +1,15 @@
 import React from 'react';
-import { Session } from '../models/Agenda';
+import { Evenement } from '../models/Agenda';
 import { Speaker } from '../models/Speaker';
 import { IonCard, IonCardHeader, IonItem, IonLabel, IonAvatar, IonCardContent, IonList } from '@ionic/react';
 
 
 interface SpeakerItemProps {
   speaker: Speaker;
-  sessions: Session[];
+  evenements: Evenement[];
 }
 
-const SpeakerItem: React.FC<SpeakerItemProps> = ({ speaker, sessions }) => {
+const SpeakerItem: React.FC<SpeakerItemProps> = ({ speaker, evenements }) => {
   return (
     <>
       <IonCard className="speaker-card">
@@ -27,10 +27,10 @@ const SpeakerItem: React.FC<SpeakerItemProps> = ({ speaker, sessions }) => {
 
         <IonCardContent>
           <IonList lines="none">
-            {sessions.map(session => (
-              <IonItem detail={false} routerLink={`/tabs/speakers/sessions/${session.id}`} key={session.name}>
+            {evenements.map(evenement => (
+              <IonItem detail={false} routerLink={`/tabs/speakers/evenements/${evenement.id}`} key={evenement.name}>
                 <IonLabel>
-                  <h3>{session.name}</h3>
+                  <h3>{evenement.name}</h3>
                 </IonLabel>
               </IonItem>
             ))}

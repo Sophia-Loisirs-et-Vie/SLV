@@ -1,9 +1,9 @@
 import { IonItemDivider, IonItemGroup, IonLabel, IonList, IonListHeader, IonAlert, AlertButton } from '@ionic/react';
 import React, { useState, useCallback } from 'react';
-import { Agenda, Session } from '../models/Agenda';
-import SessionListItem from './SessionListItem';
+import { Agenda, Evenement } from '../models/Agenda';
+import EvenementListItem from './EvenementListItem';
 import { connect } from '../data/connect';
-import { addFavorite, removeFavorite } from '../data/sessions/sessions.actions';
+import { addFavorite, removeFavorite } from '../data/evenements/evenements.actions';
 
 interface OwnProps {
   agenda: Agenda;
@@ -12,7 +12,7 @@ interface OwnProps {
 }
 
 interface StateProps {
-  favoriteSessions: number[];
+  favoriteEvenements: number[];
 }
 
 interface DispatchProps {
@@ -20,9 +20,9 @@ interface DispatchProps {
   removeFavorite: typeof removeFavorite;
 }
 
-interface SessionListProps extends OwnProps, StateProps, DispatchProps { };
+interface EvenementListProps extends OwnProps, StateProps, DispatchProps { };
 
-const SessionList: React.FC<SessionListProps> = ({ addFavorite, removeFavorite, favoriteSessions, hide, agenda, listType }) => {
+const EvenementList: React.FC<EvenementListProps> = ({ addFavorite, removeFavorite, favoriteEvenements, hide, agenda, listType }) => {
 
   const [showAlert, setShowAlert] = useState(false);
   const [alertHeader, setAlertHeader] = useState('');
@@ -38,7 +38,7 @@ const SessionList: React.FC<SessionListProps> = ({ addFavorite, removeFavorite, 
     return (
       <IonList>
         <IonListHeader>
-          No Sessions Found
+          No Evenements Found
         </IonListHeader>
       </IonList>
     );
@@ -54,14 +54,14 @@ const SessionList: React.FC<SessionListProps> = ({ addFavorite, removeFavorite, 
                 {group.time}
               </IonLabel>
             </IonItemDivider>
-            {group.sessions.map((session: Session, sessionIndex: number) => (
-              <SessionListItem
+            {group.evenements.map((evenement: Evenement, evenementIndex: number) => (
+              <EvenementListItem
                 onShowAlert={handleShowAlert}
-                isFavorite={favoriteSessions.indexOf(session.id) > -1}
+                isFavorite={favoriteEvenements.indexOf(evenement.id) > -1}
                 onAddFavorite={addFavorite}
                 onRemoveFavorite={removeFavorite}
-                key={`group-${index}-${sessionIndex}`}
-                session={session}
+                key={`group-${index}-${evenementIndex}`}
+                evenement={evenement}
                 listType={listType}
               />
             ))}
@@ -80,11 +80,11 @@ const SessionList: React.FC<SessionListProps> = ({ addFavorite, removeFavorite, 
 
 export default connect<OwnProps, StateProps, DispatchProps>({
   mapStateToProps: (state) => ({
-    favoriteSessions: state.data.favorites
+    favoriteEvenements: state.data.favorites
   }),
   mapDispatchToProps: ({
     addFavorite,
     removeFavorite
   }),
-  component: SessionList
+  component: EvenementList
 });

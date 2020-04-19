@@ -2,7 +2,7 @@ import React from 'react';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, IonGrid, IonRow, IonCol } from '@ionic/react';
 import SpeakerItem from '../components/SpeakerItem';
 import { Speaker } from '../models/Speaker';
-import { Session } from '../models/Agenda';
+import { Evenement } from '../models/Agenda';
 import { connect } from '../data/connect';
 import * as selectors from '../data/selectors';
 import './SpeakerList.scss';
@@ -11,14 +11,14 @@ interface OwnProps { };
 
 interface StateProps {
   speakers: Speaker[];
-  speakerSessions: { [key: string]: Session[] };
+  speakerEvenements: { [key: string]: Evenement[] };
 };
 
 interface DispatchProps { };
 
 interface SpeakerListProps extends OwnProps, StateProps, DispatchProps { };
 
-const SpeakerList: React.FC<SpeakerListProps> = ({ speakers, speakerSessions }) => {
+const SpeakerList: React.FC<SpeakerListProps> = ({ speakers, speakerEvenements }) => {
 
   return (
     <IonPage id="speaker-list">
@@ -45,7 +45,7 @@ const SpeakerList: React.FC<SpeakerListProps> = ({ speakers, speakerSessions }) 
                   <SpeakerItem
                     key={speaker.id}
                     speaker={speaker}
-                    sessions={speakerSessions[speaker.name]}
+                    evenements={speakerEvenements[speaker.name]}
                   />
                 </IonCol>
               ))}
@@ -59,7 +59,7 @@ const SpeakerList: React.FC<SpeakerListProps> = ({ speakers, speakerSessions }) 
 export default connect<OwnProps, StateProps, DispatchProps>({
   mapStateToProps: (state) => ({
     speakers: selectors.getSpeakers(state),
-    speakerSessions: selectors.getSpeakerSessions(state)
+    speakerEvenements: selectors.getSpeakerEvenements(state)
   }),
   component: React.memo(SpeakerList)
 });

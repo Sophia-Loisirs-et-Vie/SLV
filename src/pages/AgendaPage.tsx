@@ -3,15 +3,15 @@ import React, { useState, useRef } from 'react';
 import { IonToolbar, IonContent, IonPage, IonButtons, IonTitle, IonMenuButton, IonSegment, IonSegmentButton, IonButton, IonIcon, IonSearchbar, IonRefresher, IonRefresherContent, IonToast, IonModal, IonHeader, getConfig } from '@ionic/react';
 import { options, search } from 'ionicons/icons';
 
-import SessionList from '../components/SessionList';
-import SessionListFilter from '../components/SessionListFilter';
+import EvenementList from '../components/EvenementList';
+import EvenementListFilter from '../components/EvenementListFilter';
 import './AgendaPage.scss'
 
 import ShareSocialFab from '../components/ShareSocialFab';
 
 import * as selectors from '../data/selectors';
 import { connect } from '../data/connect';
-import { setSearchText } from '../data/sessions/sessions.actions';
+import { setSearchText } from '../data/evenements/evenements.actions';
 import { Agenda } from '../models/Agenda';
 
 interface OwnProps { }
@@ -121,12 +121,12 @@ const AgendaPage: React.FC<AgendaPageProps> = ({ favoritesAgenda, agenda, setSea
           onDidDismiss={() => setShowCompleteToast(false)}
         />
 
-        <SessionList
+        <EvenementList
           agenda={agenda}
           listType={segment}
           hide={segment === 'favorites'}
         />
-        <SessionList
+        <EvenementList
           // agenda={agenda}
           agenda={favoritesAgenda}
           listType={segment}
@@ -139,9 +139,9 @@ const AgendaPage: React.FC<AgendaPageProps> = ({ favoritesAgenda, agenda, setSea
         onDidDismiss={() => setShowFilterModal(false)}
         swipeToClose={true}
         presentingElement={pageRef.current!}
-        cssClass="session-list-filter"
+        cssClass="evenement-list-filter"
       >
-        <SessionListFilter
+        <EvenementListFilter
           onDismissModal={() => setShowFilterModal(false)}
         />
       </IonModal>

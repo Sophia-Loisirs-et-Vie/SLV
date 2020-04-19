@@ -19,14 +19,14 @@ export const setData = (data: Partial<ConfState>) => ({
   data
 } as const);
 
-export const addFavorite = (sessionId: number) => ({
+export const addFavorite = (evenementId: number) => ({
   type: 'add-favorite',
-  sessionId
+  evenementId
 } as const);
 
-export const removeFavorite = (sessionId: number) => ({
+export const removeFavorite = (evenementId: number) => ({
   type: 'remove-favorite',
-  sessionId
+  evenementId
 } as const);
 
 export const updateFilteredTracks = (filteredTracks: string[]) => ({
@@ -44,7 +44,7 @@ export const setMenuEnabled = (menuEnabled: boolean) => ({
   menuEnabled
 } as const);
 
-export type SessionsActions =
+export type EvenementsActions =
   | ActionType<typeof setLoading>
   | ActionType<typeof setData>
   | ActionType<typeof addFavorite>
