@@ -7,7 +7,7 @@ export const initialState: AppState = {
     agenda: { groups: [] } as any,
     evenements: [],
     speakers: [],
-    favorites: [],
+    favoris: [],
     locations: [],
     allTracks: [],
     filteredTracks: [],

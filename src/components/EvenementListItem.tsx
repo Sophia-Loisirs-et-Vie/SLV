@@ -4,7 +4,7 @@ import { Evenement } from '../models/Agenda';
 
 interface EvenementListItemProps {
   evenement: Evenement;
-  listType: "all" | "favorites";
+  listType: "tous" | "favoris";
   onAddFavorite: (id: number) => void;
   onRemoveFavorite: (id: number) => void;
   onShowAlert: (header: string, buttons: AlertButton[]) => void;
@@ -65,7 +65,7 @@ const EvenementListItem: React.FC<EvenementListItemProps> = ({ isFavorite, onAdd
         </IonLabel>
       </IonItem>
       <IonItemOptions>
-        {listType === "favorites" ?
+        {listType === "favoris" ?
           <IonItemOption color="danger" onClick={() => removeFavoriteEvenement()}>
             Remove
           </IonItemOption>

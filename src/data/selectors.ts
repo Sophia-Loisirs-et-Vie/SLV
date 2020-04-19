@@ -9,7 +9,7 @@ const getAgenda = (state: AppState) => {
 export const getSpeakers = (state: AppState) => state.data.speakers;
 const getEvenements = (state: AppState) => state.data.evenements;
 const getFilteredTracks = (state: AppState) => state.data.filteredTracks;
-const getFavoriteIds = (state: AppState) => state.data.favorites;
+const getFavoriteIds = (state: AppState) => state.data.favoris;
 const getSearchText = (state: AppState) => state.data.searchText;
 
 export const getFilteredAgenda = createSelector(
@@ -71,7 +71,7 @@ export const getAgendaList = createSelector(
   (agenda) => agenda
 );
 
-export const getGroupedFavorites = createSelector(
+export const getGroupedFavoris = createSelector(
   getAgendaList, getFavoriteIds,
   (agenda, favoriteIds) => {
     const groups: AgendaGroup[] = [];

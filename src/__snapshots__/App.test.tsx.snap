@@ -151,14 +151,14 @@ exports[`renders without crashing 1`] = `
                     </ion-buttons>
                     <ion-segment>
                       <ion-segment-button
-                        value="all"
+                        value="tous"
                       >
-                        All
+                        Tous
                       </ion-segment-button>
                       <ion-segment-button
-                        value="favorites"
+                        value="favoris"
                       >
-                        Favorites
+                        Favoris
                       </ion-segment-button>
                     </ion-segment>
                     <ion-buttons

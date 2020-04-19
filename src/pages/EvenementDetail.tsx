@@ -97,7 +97,7 @@ const EvenementDetail: React.FC<EvenementDetailProps> = ({ evenement, addFavorit
 export default connect<OwnProps, StateProps, DispatchProps>({
   mapStateToProps: (state, OwnProps) => ({
     evenement: selectors.getEvenement(state, OwnProps),
-    favoriteEvenements: state.data.favorites
+    favoriteEvenements: state.data.favoris
   }),
   mapDispatchToProps: {
     addFavorite,

@@ -18,7 +18,7 @@ interface OwnProps { }
 
 interface StateProps {
   agenda: Agenda;
-  favoritesAgenda: Agenda;
+  favorisAgenda: Agenda;
   mode: 'ios' | 'md'
 }
 
@@ -28,8 +28,8 @@ interface DispatchProps {
 
 type AgendaPageProps = OwnProps & StateProps & DispatchProps;
 
-const AgendaPage: React.FC<AgendaPageProps> = ({ favoritesAgenda, agenda, setSearchText, mode }) => {
-  const [segment, setSegment] = useState<'all' | 'favorites'>('all');
+const AgendaPage: React.FC<AgendaPageProps> = ({ favorisAgenda, agenda, setSearchText, mode }) => {
+  const [segment, setSegment] = useState<'tous' | 'favoris'>('tous');
   const [showSearchbar, setShowSearchbar] = useState<boolean>(false);
   const [showFilterModal, setShowFilterModal] = useState(false);
   const ionRefresherRef = useRef<HTMLIonRefresherElement>(null);
@@ -57,11 +57,11 @@ const AgendaPage: React.FC<AgendaPageProps> = ({ favoritesAgenda, agenda, setSea
           }
           {ios &&
             <IonSegment value={segment} onIonChange={(e) => setSegment(e.detail.value as any)}>
-              <IonSegmentButton value="all">
-                All
+              <IonSegmentButton value="tous">
+                Tous
               </IonSegmentButton>
-              <IonSegmentButton value="favorites">
-                Favorites
+              <IonSegmentButton value="favoris">
+                Favoris
               </IonSegmentButton>
             </IonSegment>
           }
@@ -89,11 +89,11 @@ const AgendaPage: React.FC<AgendaPageProps> = ({ favoritesAgenda, agenda, setSea
         {!ios &&
           <IonToolbar>
             <IonSegment value={segment} onIonChange={(e) => setSegment(e.detail.value as any)}>
-              <IonSegmentButton value="all">
-                All
+              <IonSegmentButton value="tous">
+                Tous
               </IonSegmentButton>
-              <IonSegmentButton value="favorites">
-                Favorites
+              <IonSegmentButton value="favoris">
+                Favoris
               </IonSegmentButton>
             </IonSegment>
           </IonToolbar>
@@ -124,13 +124,13 @@ const AgendaPage: React.FC<AgendaPageProps> = ({ favoritesAgenda, agenda, setSea
         <EvenementList
           agenda={agenda}
           listType={segment}
-          hide={segment === 'favorites'}
+          hide={segment === 'favoris'}
         />
         <EvenementList
           // agenda={agenda}
-          agenda={favoritesAgenda}
+          agenda={favorisAgenda}
           listType={segment}
-          hide={segment === 'all'}
+          hide={segment === 'tous'}
         />
       </IonContent>
 
@@ -155,7 +155,7 @@ const AgendaPage: React.FC<AgendaPageProps> = ({ favoritesAgenda, agenda, setSea
 export default connect<OwnProps, StateProps, DispatchProps>({
   mapStateToProps: (state) => ({
     agenda: selectors.getSearchedAgenda(state),
-    favoritesAgenda: selectors.getGroupedFavorites(state),
+    favorisAgenda: selectors.getGroupedFavoris(state),
     mode: getConfig()!.get('mode')
   }),
   mapDispatchToProps: {

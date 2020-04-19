@@ -10,10 +10,10 @@ export const evenementsReducer = (state: ConfState, action: EvenementsActions): 
       return { ...state, ...action.data };
     }
     case 'add-favorite': {
-      return { ...state, favorites: [...(state.favorites), action.evenementId] };
+      return { ...state, favoris: [...(state.favoris), action.evenementId] };
     }
     case 'remove-favorite': {
-      return { ...state, favorites: [...(state.favorites).filter(x => x !== action.evenementId)] };
+      return { ...state, favoris: [...(state.favoris).filter(x => x !== action.evenementId)] };
     }
     case 'update-filtered-tracks': {
       return { ...state, filteredTracks: action.filteredTracks };

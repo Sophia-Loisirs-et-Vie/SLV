@@ -7,7 +7,7 @@ import { addFavorite, removeFavorite } from '../data/evenements/evenements.actio
 
 interface OwnProps {
   agenda: Agenda;
-  listType: 'all' | 'favorites';
+  listType: 'tous' | 'favoris';
   hide: boolean;
 }
 
@@ -80,7 +80,7 @@ const EvenementList: React.FC<EvenementListProps> = ({ addFavorite, removeFavori
 
 export default connect<OwnProps, StateProps, DispatchProps>({
   mapStateToProps: (state) => ({
-    favoriteEvenements: state.data.favorites
+    favoriteEvenements: state.data.favoris
   }),
   mapDispatchToProps: ({
     addFavorite,

@@ -5,7 +5,7 @@ export interface ConfState {
   agenda: Agenda;
   evenements: Evenement[];
   speakers: Speaker[];
-  favorites: number[];
+  favoris: number[];
   locations: Location[];
   filteredTracks: string[];
   searchText?: string;
