@@ -17,7 +17,7 @@ const routes = {
     { title: 'A propos', path: '/tabs/apropos', icon: informationCircleOutline }
   ],
   loggedInPages: [
-    { title: 'Account', path: '/account', icon: person },
+    { title: 'Compte', path: '/compte', icon: person },
     { title: 'Support', path: '/support', icon: help },
     { title: 'Deconnexion', path: '/deconnexion', icon: logOut }
   ],
@@ -70,7 +70,7 @@ const Menu: React.FC<MenuProps> = ({ darkMode, history, isAuthenticated, setDark
           {renderlistItems(routes.appPages)}
         </IonList>
         <IonList lines="none">
-          <IonListHeader>Account</IonListHeader>
+          <IonListHeader>Compte</IonListHeader>
           {isAuthenticated ? renderlistItems(routes.loggedInPages) : renderlistItems(routes.loggedOutPages)}
           <IonItem>
             <IonIcon slot="start" icon={moonOutline}></IonIcon>

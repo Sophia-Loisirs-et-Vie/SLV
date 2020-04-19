@@ -28,7 +28,7 @@ import { connect } from './data/connect';
 import { AppContextProvider } from './data/AppContext';
 import { loadConfData } from './data/evenements/evenements.actions';
 import { setIsLoggedIn, setUsername, loadUserData } from './data/user/user.actions';
-import Account from './pages/Account';
+import Compte from './pages/Compte';
 import Connexion from './pages/Connexion';
 import Inscription from './pages/Inscription';
 import Support from './pages/Support';
@@ -76,7 +76,7 @@ const IonicApp: React.FC<IonicAppProps> = ({ darkMode, agenda, setIsLoggedIn, se
               <Menu />
               <IonRouterOutlet id="main">
                 <Route path="/tabs" component={MainTabs} />
-                <Route path="/account" component={Account} />
+                <Route path="/compte" component={Compte} />
                 <Route path="/connexion" component={Connexion} />
                 <Route path="/inscription" component={Inscription} />
                 <Route path="/support" component={Support} />

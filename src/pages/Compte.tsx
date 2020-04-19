@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, IonList, IonItem, IonAlert } from '@ionic/react';
-import './Account.scss';
+import './Compte.scss';
 import { setUsername } from '../data/user/user.actions';
 import { connect } from '../data/connect';
 import { RouteComponentProps } from 'react-router';
@@ -15,9 +15,9 @@ interface DispatchProps {
   setUsername: typeof setUsername;
 }
 
-interface AccountProps extends OwnProps, StateProps, DispatchProps { }
+interface CompteProps extends OwnProps, StateProps, DispatchProps { }
 
-const Account: React.FC<AccountProps> = ({ setUsername, username }) => {
+const Compte: React.FC<CompteProps> = ({ setUsername, username }) => {
 
   const [showAlert, setShowAlert] = useState(false);
 
@@ -26,13 +26,13 @@ const Account: React.FC<AccountProps> = ({ setUsername, username }) => {
   }
 
   return (
-    <IonPage id="account-page">
+    <IonPage id="compte-page">
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
             <IonMenuButton></IonMenuButton>
           </IonButtons>
-          <IonTitle>Account</IonTitle>
+          <IonTitle>Compte</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
@@ -83,5 +83,5 @@ export default connect<OwnProps, StateProps, DispatchProps>({
   mapDispatchToProps: {
     setUsername,
   },
-  component: Account
+  component: Compte
 })

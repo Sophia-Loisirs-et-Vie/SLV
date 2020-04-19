@@ -74,7 +74,7 @@ exports[`renders without crashing 1`] = `
           </ion-list>
           <ion-list>
             <ion-list-header>
-              Account
+              Compte
             </ion-list-header>
             <ion-menu-toggle
               auto-hide="false"
@@ -84,7 +84,7 @@ exports[`renders without crashing 1`] = `
                   slot="start"
                 />
                 <ion-label>
-                  Account
+                  Compte
                 </ion-label>
               </ion-item>
             </ion-menu-toggle>
