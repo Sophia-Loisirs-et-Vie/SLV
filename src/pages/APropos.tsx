@@ -63,7 +63,7 @@ const APropos: React.FC<AProposProps> = () => {
           <div className="apropos-image seattle" style={{'opacity': location === 'seattle' ? '1' : undefined}}></div>
         </div>
         <div className="apropos-info">
-          <h3 className="ion-padding-top ion-padding-start">APropos</h3>
+          <h3 className="ion-padding-top ion-padding-start">A propos</h3>
 
           <p className="ion-padding-start ion-padding-end">
             The Ionic Conference is a one-day conference on { displayDate(conferenceDate, 'mediumDate') } featuring talks from the Ionic team. It is focused on Ionic applications being built with Ionic Framework. This includes migrating apps to the latest version of the framework, Angular concepts, Webpack, Sass, and many other technologies used in Ionic 2. Tickets are completely sold out, and we’re expecting more than 1000 developers – making this the largest Ionic conference ever!

@@ -44,7 +44,7 @@ const MainTabs: React.FC<MainTabsProps> = () => {
         </IonTabButton>
         <IonTabButton tab="apropos" href="/tabs/apropos">
           <IonIcon icon={informationCircle} />
-          <IonLabel>APropos</IonLabel>
+          <IonLabel>A propos</IonLabel>
         </IonTabButton>
       </IonTabBar>
     </IonTabs>

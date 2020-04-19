@@ -14,7 +14,7 @@ const routes = {
     { title: 'Schedule', path: '/tabs/schedule', icon: calendarOutline },
     { title: 'Speakers', path: '/tabs/speakers', icon: peopleOutline },
     { title: 'Carte', path: '/tabs/map', icon: mapOutline },
-    { title: 'APropos', path: '/tabs/apropos', icon: informationCircleOutline }
+    { title: 'A propos', path: '/tabs/apropos', icon: informationCircleOutline }
   ],
   loggedInPages: [
     { title: 'Account', path: '/account', icon: person },

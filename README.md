@@ -20,7 +20,7 @@ Visual Studio Code recommandé
 ## Premières étapes à faire
 * Changer le titre dans la page html, favicon
 * Traduire en français
-* Renommer les composants, exemple About devient APropos
+* Renommer les composants, exemples: About devient APropos, Map devient Carte
 
 ## Environnement technique
 * la partie cliente (mobile/web) est développée avec Ionic React
