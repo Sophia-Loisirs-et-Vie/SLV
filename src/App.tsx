@@ -30,7 +30,7 @@ import { loadConfData } from './data/evenements/evenements.actions';
 import { setIsLoggedIn, setUsername, loadUserData } from './data/user/user.actions';
 import Account from './pages/Account';
 import Connexion from './pages/Connexion';
-import Signup from './pages/Signup';
+import Inscription from './pages/Inscription';
 import Support from './pages/Support';
 import Tutorial from './pages/Tutorial';
 import HomeOrTutorial from './components/HomeOrTutorial';
@@ -78,7 +78,7 @@ const IonicApp: React.FC<IonicAppProps> = ({ darkMode, agenda, setIsLoggedIn, se
                 <Route path="/tabs" component={MainTabs} />
                 <Route path="/account" component={Account} />
                 <Route path="/connexion" component={Connexion} />
-                <Route path="/signup" component={Signup} />
+                <Route path="/inscription" component={Inscription} />
                 <Route path="/support" component={Support} />
                 <Route path="/tutorial" component={Tutorial} />
                 <Route path="/deconnexion" render={() => {

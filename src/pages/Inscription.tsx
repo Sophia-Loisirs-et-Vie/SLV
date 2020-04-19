@@ -40,13 +40,13 @@ const Connexion: React.FC<ConnexionProps> = ({setIsLoggedIn, history, setUsernam
   };
 
   return (
-    <IonPage id="signup-page">
+    <IonPage id="inscription-page">
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
             <IonMenuButton></IonMenuButton>
           </IonButtons>
-          <IonTitle>Signup</IonTitle>
+          <IonTitle>Inscription</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>

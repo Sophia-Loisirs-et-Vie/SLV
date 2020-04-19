@@ -24,7 +24,7 @@ const routes = {
   loggedOutPages: [
     { title: 'Connexion', path: '/connexion', icon: logIn },
     { title: 'Support', path: '/support', icon: help },
-    { title: 'Signup', path: '/signup', icon: personAdd }
+    { title: 'Inscription', path: '/inscription', icon: personAdd }
   ]
 };
 

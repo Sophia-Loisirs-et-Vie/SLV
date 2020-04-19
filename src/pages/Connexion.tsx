@@ -88,7 +88,7 @@ const Connexion: React.FC<ConnexionProps> = ({setIsLoggedIn, history, setUsernam
               <IonButton type="submit" expand="block">Connexion</IonButton>
             </IonCol>
             <IonCol>
-              <IonButton routerLink="/signup" color="light" expand="block">Signup</IonButton>
+              <IonButton routerLink="/inscription" color="light" expand="block">Inscription</IonButton>
             </IonCol>
           </IonRow>
         </form>
