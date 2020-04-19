@@ -29,7 +29,7 @@ import { AppContextProvider } from './data/AppContext';
 import { loadConfData } from './data/evenements/evenements.actions';
 import { setIsLoggedIn, setUsername, loadUserData } from './data/user/user.actions';
 import Account from './pages/Account';
-import Login from './pages/Login';
+import Connexion from './pages/Connexion';
 import Signup from './pages/Signup';
 import Support from './pages/Support';
 import Tutorial from './pages/Tutorial';
@@ -77,11 +77,11 @@ const IonicApp: React.FC<IonicAppProps> = ({ darkMode, agenda, setIsLoggedIn, se
               <IonRouterOutlet id="main">
                 <Route path="/tabs" component={MainTabs} />
                 <Route path="/account" component={Account} />
-                <Route path="/login" component={Login} />
+                <Route path="/connexion" component={Connexion} />
                 <Route path="/signup" component={Signup} />
                 <Route path="/support" component={Support} />
                 <Route path="/tutorial" component={Tutorial} />
-                <Route path="/logout" render={() => {
+                <Route path="/deconnexion" render={() => {
                   setIsLoggedIn(false);
                   setUsername(undefined);
                   return <Redirect to="/tabs" />

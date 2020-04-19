@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText } from '@ionic/react';
-import './Login.scss';
+import './Connexion.scss';
 import { setIsLoggedIn, setUsername } from '../data/user/user.actions';
 import { connect } from '../data/connect';
 import { RouteComponentProps } from 'react-router';
@@ -12,9 +12,9 @@ interface DispatchProps {
   setUsername: typeof setUsername;
 }
 
-interface LoginProps extends OwnProps,  DispatchProps { }
+interface ConnexionProps extends OwnProps,  DispatchProps { }
 
-const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUsernameAction}) => {
+const Connexion: React.FC<ConnexionProps> = ({setIsLoggedIn, history, setUsername: setUsernameAction}) => {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -22,7 +22,7 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
   const [usernameError, setUsernameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
 
-  const login = async (e: React.FormEvent) => {
+  const connexion = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormSubmitted(true);
     if(!username) {
@@ -51,11 +51,11 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
       </IonHeader>
       <IonContent>
 
-        <div className="login-logo">
+        <div className="connexion-logo">
           <img src="assets/img/appicon.svg" alt="Ionic logo" />
         </div>
 
-        <form noValidate onSubmit={login}>
+        <form noValidate onSubmit={connexion}>
           <IonList>
             <IonItem>
               <IonLabel position="stacked" color="primary">Username</IonLabel>
@@ -107,5 +107,5 @@ export default connect<OwnProps, {}, DispatchProps>({
     setIsLoggedIn,
     setUsername
   },
-  component: Login
+  component: Connexion
 })

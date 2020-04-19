@@ -20,7 +20,7 @@ export const setData = (data: Partial<UserState>) => ({
   data
 } as const);
 
-export const logoutUser = () => async (dispatch: React.Dispatch<any>) => {
+export const deconnexionUser = () => async (dispatch: React.Dispatch<any>) => {
   await setIsLoggedInData(false);
   dispatch(setUsername());
 };

@@ -19,10 +19,10 @@ const routes = {
   loggedInPages: [
     { title: 'Account', path: '/account', icon: person },
     { title: 'Support', path: '/support', icon: help },
-    { title: 'Logout', path: '/logout', icon: logOut }
+    { title: 'Deconnexion', path: '/deconnexion', icon: logOut }
   ],
   loggedOutPages: [
-    { title: 'Login', path: '/login', icon: logIn },
+    { title: 'Connexion', path: '/connexion', icon: logIn },
     { title: 'Support', path: '/support', icon: help },
     { title: 'Signup', path: '/signup', icon: personAdd }
   ]

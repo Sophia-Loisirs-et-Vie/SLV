@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonText, IonTextarea, IonToast } from '@ionic/react';
-import './Login.scss';
+import './Connexion.scss';
 import { connect } from '../data/connect';
 
 interface OwnProps { }
@@ -40,7 +40,7 @@ const Support: React.FC<SupportProps> = () => {
       </IonHeader>
       <IonContent>
 
-        <div className="login-logo">
+        <div className="connexion-logo">
           <img src="assets/img/appicon.svg" alt="Ionic logo" />
         </div>
 

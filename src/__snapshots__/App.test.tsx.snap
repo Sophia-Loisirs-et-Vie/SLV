@@ -108,7 +108,7 @@ exports[`renders without crashing 1`] = `
                   slot="start"
                 />
                 <ion-label>
-                  Logout
+                  Deconnexion
                 </ion-label>
               </ion-item>
             </ion-menu-toggle>
