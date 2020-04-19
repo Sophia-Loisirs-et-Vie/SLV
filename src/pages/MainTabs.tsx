@@ -6,8 +6,8 @@ import SchedulePage from './SchedulePage';
 import SpeakerList from './SpeakerList';
 import SpeakerDetail from './SpeakerDetail';
 import SessionDetail from './SessionDetail';
-import MapView from './MapView';
-import About from './About';
+import CarteView from './CarteView';
+import APropos from './APropos';
 
 interface MainTabsProps { }
 
@@ -26,8 +26,8 @@ const MainTabs: React.FC<MainTabsProps> = () => {
         <Route path="/tabs/speakers/:id" component={SpeakerDetail} exact={true} />
         <Route path="/tabs/schedule/:id" component={SessionDetail} />
         <Route path="/tabs/speakers/sessions/:id" component={SessionDetail} />
-        <Route path="/tabs/map" render={() => <MapView />} exact={true} />
-        <Route path="/tabs/about" render={() => <About />} exact={true} />
+        <Route path="/tabs/map" render={() => <CarteView />} exact={true} />
+        <Route path="/tabs/apropos" render={() => <APropos />} exact={true} />
       </IonRouterOutlet>
       <IonTabBar slot="bottom">
         <IonTabButton tab="schedule" href="/tabs/schedule">
@@ -40,11 +40,11 @@ const MainTabs: React.FC<MainTabsProps> = () => {
         </IonTabButton>
         <IonTabButton tab="map" href="/tabs/map">
           <IonIcon icon={location} />
-          <IonLabel>Map</IonLabel>
+          <IonLabel>Carte</IonLabel>
         </IonTabButton>
-        <IonTabButton tab="about" href="/tabs/about">
+        <IonTabButton tab="apropos" href="/tabs/apropos">
           <IonIcon icon={informationCircle} />
-          <IonLabel>About</IonLabel>
+          <IonLabel>APropos</IonLabel>
         </IonTabButton>
       </IonTabBar>
     </IonTabs>

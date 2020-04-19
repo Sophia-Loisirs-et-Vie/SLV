@@ -1,10 +1,10 @@
 import React from 'react';
-import Map from '../components/Map';
+import Carte from '../components/Carte';
 import { IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent, IonPage } from '@ionic/react';
 import { Location } from '../models/Location';
 import { connect } from '../data/connect';
 import * as selectors from '../data/selectors';
-import './MapView.scss';
+import './CarteView.scss';
 
 interface OwnProps { }
 
@@ -15,9 +15,9 @@ interface StateProps {
 
 interface DispatchProps { }
 
-interface MapViewProps extends OwnProps, StateProps, DispatchProps { };
+interface CarteViewProps extends OwnProps, StateProps, DispatchProps { };
 
-const MapView: React.FC<MapViewProps> = ({ locations, mapCenter }) => {
+const CarteView: React.FC<CarteViewProps> = ({ locations, mapCenter }) => {
   return (
   <IonPage id="map-view">
     <IonHeader>
@@ -25,12 +25,12 @@ const MapView: React.FC<MapViewProps> = ({ locations, mapCenter }) => {
         <IonButtons slot="start">
           <IonMenuButton></IonMenuButton>
         </IonButtons>
-        <IonTitle>Map</IonTitle>
+        <IonTitle>Carte</IonTitle>
       </IonToolbar>
     </IonHeader>
 
     <IonContent class="map-page">
-      <Map locations={locations} mapCenter={mapCenter} />
+      <Carte locations={locations} mapCenter={mapCenter} />
     </IonContent>
   </IonPage>
 )};
@@ -40,5 +40,5 @@ export default connect<OwnProps, StateProps, DispatchProps>({
     locations: state.data.locations,
     mapCenter: selectors.mapCenter(state)
   }),
-  component: MapView
+  component: CarteView
 });

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { IonHeader, IonToolbar, IonContent, IonPage, IonButtons, IonMenuButton, IonButton, IonIcon, IonDatetime, IonSelectOption, IonList, IonItem, IonLabel, IonSelect, IonPopover } from '@ionic/react';
-import './About.scss';
+import './APropos.scss';
 import { ellipsisHorizontal, ellipsisVertical } from 'ionicons/icons';
-import AboutPopover from '../components/AboutPopover';
+import AProposPopover from '../components/AProposPopover';
 
-interface AboutProps { }
+interface AProposProps { }
 
-const About: React.FC<AboutProps> = () => {
+const APropos: React.FC<AProposProps> = () => {
 
   const [showPopover, setShowPopover] = useState(false);
   const [popoverEvent, setPopoverEvent] = useState();
@@ -40,7 +40,7 @@ const About: React.FC<AboutProps> = () => {
   }
 
   return (
-    <IonPage id="about-page">
+    <IonPage id="apropos-page">
       <IonContent>
         <IonHeader className="ion-no-border">
           <IonToolbar>
@@ -55,15 +55,15 @@ const About: React.FC<AboutProps> = () => {
           </IonToolbar>
         </IonHeader>
 
-        <div className="about-header">
+        <div className="apropos-header">
           {/* Instead of loading an image each time the select changes, use opacity to transition them */}
-          <div className="about-image madison" style={{'opacity': location === 'madison' ? '1' : undefined}}></div>
-          <div className="about-image austin" style={{'opacity': location === 'austin' ? '1' : undefined}}></div>
-          <div className="about-image chicago" style={{'opacity': location === 'chicago' ? '1' : undefined}}></div>
-          <div className="about-image seattle" style={{'opacity': location === 'seattle' ? '1' : undefined}}></div>
+          <div className="apropos-image madison" style={{'opacity': location === 'madison' ? '1' : undefined}}></div>
+          <div className="apropos-image austin" style={{'opacity': location === 'austin' ? '1' : undefined}}></div>
+          <div className="apropos-image chicago" style={{'opacity': location === 'chicago' ? '1' : undefined}}></div>
+          <div className="apropos-image seattle" style={{'opacity': location === 'seattle' ? '1' : undefined}}></div>
         </div>
-        <div className="about-info">
-          <h3 className="ion-padding-top ion-padding-start">About</h3>
+        <div className="apropos-info">
+          <h3 className="ion-padding-top ion-padding-start">APropos</h3>
 
           <p className="ion-padding-start ion-padding-end">
             The Ionic Conference is a one-day conference on { displayDate(conferenceDate, 'mediumDate') } featuring talks from the Ionic team. It is focused on Ionic applications being built with Ionic Framework. This includes migrating apps to the latest version of the framework, Angular concepts, Webpack, Sass, and many other technologies used in Ionic 2. Tickets are completely sold out, and we’re expecting more than 1000 developers – making this the largest Ionic conference ever!
@@ -125,10 +125,10 @@ const About: React.FC<AboutProps> = () => {
         event={popoverEvent}
         onDidDismiss={() => setShowPopover(false)}
       >
-        <AboutPopover dismiss={() => setShowPopover(false)} />
+        <AProposPopover dismiss={() => setShowPopover(false)} />
       </IonPopover>
     </IonPage>
   );
 };
 
-export default React.memo(About);
+export default React.memo(APropos);

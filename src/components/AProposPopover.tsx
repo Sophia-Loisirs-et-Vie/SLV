@@ -1,11 +1,11 @@
 import React from 'react';
 import { IonList, IonItem, IonLabel } from '@ionic/react';
 
-interface AboutPopoverProps {
+interface AProposPopoverProps {
   dismiss: () => void;
 };
 
-const AboutPopover: React.FC<AboutPopoverProps> = ({dismiss}) => {
+const AProposPopover: React.FC<AProposPopoverProps> = ({dismiss}) => {
 
   const close = (url: string) => {
     window.open(url, '_blank');
@@ -33,4 +33,4 @@ const AboutPopover: React.FC<AboutPopoverProps> = ({dismiss}) => {
   )
 }
 
-export default AboutPopover;
+export default AProposPopover;
