@@ -9,8 +9,8 @@ export function userReducer(state: UserState, action: UserActions): UserState {
       return { ...state, ...action.data };
     case 'set-utilisateur':
       return { ...state, utilisateur: action.utilisateur };
-    case 'set-has-seen-tutorial':
-      return { ...state, hasSeenTutorial: action.hasSeenTutorial };
+    case 'set-has-seen-information':
+      return { ...state, hasSeenInformation: action.hasSeenInformation };
     case 'set-dark-mode':
       return { ...state, darkMode: action.darkMode };
     case 'set-is-loggedin':

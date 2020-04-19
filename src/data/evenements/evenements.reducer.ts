@@ -15,7 +15,7 @@ export const evenementsReducer = (state: ApplState, action: EvenementsActions): 
     case 'remove-favorite': {
       return { ...state, favoris: [...(state.favoris).filter(x => x !== action.evenementId)] };
     }
-    case 'update-filtered-tracks': {
+    case 'update-filtered-tags': {
       return { ...state, filteredTags: action.filteredTags };
     }
     case 'set-search-text': {

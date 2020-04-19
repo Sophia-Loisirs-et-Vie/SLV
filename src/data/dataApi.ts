@@ -9,7 +9,7 @@ const dataUrl = '/assets/data/data.json';
 const locationsUrl = '/assets/data/locations.json';
 
 const HAS_LOGGED_IN = 'hasLoggedIn';
-const HAS_SEEN_TUTORIAL = 'hasSeenTutorial';
+const HAS_SEEN_TUTORIAL = 'hasSeenInformation';
 const UTILISATEUR = 'utilisateur';
 const DARKMODE = 'darkMode';
 
@@ -23,8 +23,8 @@ export const getApplData = async () => {
   const lieux = responseData.lieux as Lieu[];
   const locations = await response[1].json() as Location[];
   const allTags = evenements
-    .reduce((all, evenement) => all.concat(evenement.tracks), [] as string[])
-    .filter((trackName, index, array) => array.indexOf(trackName) === index)
+    .reduce((all, evenement) => all.concat(evenement.tags), [] as string[])
+    .filter((tagName, index, array) => array.indexOf(tagName) === index)
     .sort();
 
   const data = {
@@ -46,12 +46,12 @@ export const getUserData = async () => {
     Storage.get({ key: UTILISATEUR })]);
   const isLoggedin = await response[0].value === 'true';
   const darkMode = await response[1].value === 'true';
-  const hasSeenTutorial = await response[2].value === 'true';
+  const hasSeenInformation = await response[2].value === 'true';
   const utilisateur = await response[3].value || undefined;
   const data = {
     isLoggedin,
     darkMode,
-    hasSeenTutorial,
+    hasSeenInformation,
     utilisateur
   }
   return data;
@@ -65,8 +65,8 @@ export const setDarkmodeData = async (darkMode: boolean) => {
   await Storage.set({ key: DARKMODE, value: JSON.stringify(darkMode) });
 }
 
-export const setHasSeenTutorialData = async (hasSeenTutorial: boolean) => {
-  await Storage.set({ key: HAS_SEEN_TUTORIAL, value: JSON.stringify(hasSeenTutorial) });
+export const setHasSeenInformationData = async (hasSeenInformation: boolean) => {
+  await Storage.set({ key: HAS_SEEN_TUTORIAL, value: JSON.stringify(hasSeenInformation) });
 }
 
 export const setUtilisateurData = async (utilisateur?: string) => {

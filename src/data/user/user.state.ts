@@ -2,6 +2,6 @@ export interface UserState {
   isLoggedin: boolean;
   utilisateur?: string;
   darkMode: boolean;
-  hasSeenTutorial: boolean;
+  hasSeenInformation: boolean;
   loading: boolean;
 };

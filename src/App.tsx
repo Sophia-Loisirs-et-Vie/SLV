@@ -32,8 +32,8 @@ import Compte from './pages/Compte';
 import Connexion from './pages/Connexion';
 import Inscription from './pages/Inscription';
 import Support from './pages/Support';
-import Tutorial from './pages/Tutorial';
-import HomeOrTutorial from './components/HomeOrTutorial';
+import Information from './pages/Information';
+import AccueilOuInformation from './components/AccueilOuInformation';
 import { Agenda } from "./models/Agenda";
 
 const App: React.FC = () => {
@@ -80,13 +80,13 @@ const IonicApp: React.FC<IonicAppProps> = ({ darkMode, agenda, setIsLoggedIn, se
                 <Route path="/connexion" component={Connexion} />
                 <Route path="/inscription" component={Inscription} />
                 <Route path="/support" component={Support} />
-                <Route path="/tutorial" component={Tutorial} />
+                <Route path="/information" component={Information} />
                 <Route path="/deconnexion" render={() => {
                   setIsLoggedIn(false);
                   setUtilisateur(undefined);
                   return <Redirect to="/tabs" />
                 }} />
-                <Route path="/" component={HomeOrTutorial} exact />
+                <Route path="/" component={AccueilOuInformation} exact />
               </IonRouterOutlet>
             </IonSplitPane>
           </IonReactRouter>

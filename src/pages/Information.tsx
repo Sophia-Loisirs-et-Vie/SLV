@@ -2,21 +2,21 @@ import React, { useState, useRef } from 'react';
 import { IonContent, IonPage, IonHeader, IonToolbar, IonButtons, IonButton, IonSlides, IonSlide, IonIcon, useIonViewWillEnter } from '@ionic/react';
 import { arrowForward } from 'ionicons/icons';
 import { setMenuEnabled } from '../data/evenements/evenements.actions';
-import { setHasSeenTutorial } from '../data/user/user.actions';
-import './Tutorial.scss';
+import { setHasSeenInformation } from '../data/user/user.actions';
+import './Information.scss';
 import { connect } from '../data/connect';
 import { RouteComponentProps } from 'react-router';
 
 interface OwnProps extends RouteComponentProps {};
 
 interface DispatchProps {
-  setHasSeenTutorial: typeof setHasSeenTutorial;
+  setHasSeenInformation: typeof setHasSeenInformation;
   setMenuEnabled: typeof setMenuEnabled;
 }
 
-interface TutorialProps extends OwnProps, DispatchProps { };
+interface InformationProps extends OwnProps, DispatchProps { };
 
-const Tutorial: React.FC<TutorialProps> = ({ history, setHasSeenTutorial, setMenuEnabled }) => {
+const Information: React.FC<InformationProps> = ({ history, setHasSeenInformation, setMenuEnabled }) => {
   const [showSkip, setShowSkip] = useState(true);
   const slideRef = useRef<HTMLIonSlidesElement>(null);
 
@@ -25,7 +25,7 @@ const Tutorial: React.FC<TutorialProps> = ({ history, setHasSeenTutorial, setMen
   });
   
   const startApp = async () => { 
-    await setHasSeenTutorial(true);
+    await setHasSeenInformation(true);
     await setMenuEnabled(true);
     history.push('/tabs/agenda', { direction: 'none' });
   };
@@ -35,7 +35,7 @@ const Tutorial: React.FC<TutorialProps> = ({ history, setHasSeenTutorial, setMen
   };
 
   return (
-    <IonPage id="tutorial-page">
+    <IonPage id="information-page">
       <IonHeader no-border>
         <IonToolbar>
           <IonButtons slot="end">
@@ -88,8 +88,8 @@ const Tutorial: React.FC<TutorialProps> = ({ history, setHasSeenTutorial, setMen
 
 export default connect<OwnProps, {}, DispatchProps>({
   mapDispatchToProps: ({
-    setHasSeenTutorial,
+    setHasSeenInformation,
     setMenuEnabled
   }),
-  component: Tutorial
+  component: Information
 });

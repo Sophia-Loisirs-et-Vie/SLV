@@ -53,7 +53,7 @@ const EvenementListItem: React.FC<EvenementListItemProps> = ({ isFavorite, onAdd
   };
 
   return (
-    <IonItemSliding ref={ionItemSlidingRef} class={'track-' + evenement.tracks[0].toLowerCase()}>
+    <IonItemSliding ref={ionItemSlidingRef} class={'tag-' + evenement.tags[0].toLowerCase()}>
       <IonItem routerLink={`/tabs/agenda/${evenement.id}`}>
         <IonLabel>
           <h3>{evenement.name}</h3>

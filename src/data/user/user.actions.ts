@@ -1,4 +1,4 @@
-import { getUserData, setIsLoggedInData, setUtilisateurData, setHasSeenTutorialData, setDarkmodeData } from '../dataApi';
+import { getUserData, setIsLoggedInData, setUtilisateurData, setHasSeenInformationData, setDarkmodeData } from '../dataApi';
 import { ActionType } from '../../util/types';
 import { UserState } from './user.state';
 
@@ -41,11 +41,11 @@ export const setUtilisateur = (utilisateur?: string) => async (dispatch: React.D
   } as const);
 };
 
-export const setHasSeenTutorial = (hasSeenTutorial: boolean) => async (dispatch: React.Dispatch<any>) => {
-  await setHasSeenTutorialData(hasSeenTutorial);
+export const setHasSeenInformation = (hasSeenInformation: boolean) => async (dispatch: React.Dispatch<any>) => {
+  await setHasSeenInformationData(hasSeenInformation);
   return ({
-    type: 'set-has-seen-tutorial',
-    hasSeenTutorial
+    type: 'set-has-seen-information',
+    hasSeenInformation
   } as const);
 } 
 
@@ -62,5 +62,5 @@ export type UserActions =
   | ActionType<typeof setData>
   | ActionType<typeof setIsLoggedIn>
   | ActionType<typeof setUtilisateur>
-  | ActionType<typeof setHasSeenTutorial>
+  | ActionType<typeof setHasSeenInformation>
   | ActionType<typeof setDarkMode>

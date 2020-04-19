@@ -16,5 +16,5 @@ export interface Evenement {
   location: string;
   description: string;
   lieuNames: string[];
-  tracks: string[];
+  tags: string[];
 }

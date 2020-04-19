@@ -30,7 +30,7 @@ export const removeFavorite = (evenementId: number) => ({
 } as const);
 
 export const updateFilteredTags = (filteredTags: string[]) => ({
-  type: 'update-filtered-tracks', 
+  type: 'update-filtered-tags', 
   filteredTags 
 } as const);
 

@@ -61,8 +61,8 @@ const EvenementDetail: React.FC<EvenementDetailProps> = ({ evenement, addFavorit
       <IonContent>
         <div className="ion-padding">
           <h1>{evenement.name}</h1>
-          {evenement.tracks.map(track => (
-            <span key={track} className={`evenement-track-${track.toLowerCase()}`}>{track}</span>
+          {evenement.tags.map(tag => (
+            <span key={tag} className={`evenement-tag-${tag.toLowerCase()}`}>{tag}</span>
           ))}
           <p>{evenement.description}</p>
           <IonText color="medium">

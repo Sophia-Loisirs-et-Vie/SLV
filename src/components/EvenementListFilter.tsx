@@ -27,11 +27,11 @@ type EvenementListFilterProps = OwnProps & StateProps & DispatchProps;
 const EvenementListFilter: React.FC<EvenementListFilterProps> = ({ allTags, filteredTags, onDismissModal, updateFilteredTags }) => {
   const ios = getMode() === 'ios';
 
-  const toggleTrackFilter = (track: string) => {
-    if (filteredTags.indexOf(track) > -1) {
-      updateFilteredTags(filteredTags.filter(x => x !== track));
+  const toggleTagFilter = (tag: string) => {
+    if (filteredTags.indexOf(tag) > -1) {
+      updateFilteredTags(filteredTags.filter(x => x !== tag));
     } else {
-      updateFilteredTags([...filteredTags, track]);
+      updateFilteredTags([...filteredTags, tag]);
     }
   };
 
@@ -83,17 +83,17 @@ const EvenementListFilter: React.FC<EvenementListFilterProps> = ({ allTags, filt
         <IonList lines={ ios ? 'inset' : 'full'}>
           <IonListHeader>Tags</IonListHeader>
 
-          {allTags.map((track, index) => (
-            <IonItem key={track}>
+          {allTags.map((tag, index) => (
+            <IonItem key={tag}>
               { ios &&
-                <IonIcon slot="start" icon={iconMap[track]} color="medium" />
+                <IonIcon slot="start" icon={iconMap[tag]} color="medium" />
               }
-              <IonLabel>{track}</IonLabel>
+              <IonLabel>{tag}</IonLabel>
               <IonCheckbox
-                onClick={() => toggleTrackFilter(track)}
-                checked={filteredTags.indexOf(track) !== -1}
+                onClick={() => toggleTagFilter(tag)}
+                checked={filteredTags.indexOf(tag) !== -1}
                 color="primary"
-                value={track}
+                value={tag}
               ></IonCheckbox>
             </IonItem>
           ))}

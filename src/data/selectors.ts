@@ -19,8 +19,8 @@ export const getFilteredAgenda = createSelector(
     agenda.groups.forEach(group => {
       const evenements: Evenement[] = [];
       group.evenements.forEach(evenement => {
-        evenement.tracks.forEach(track => {
-          if (filteredTags.indexOf(track) > -1) {
+        evenement.tags.forEach(tag => {
+          if (filteredTags.indexOf(tag) > -1) {
             evenements.push(evenement);
           }
         })
