@@ -62,19 +62,19 @@ const EvenementListFilter: React.FC<EvenementListFilterProps> = ({ allTracks, fi
         <IonToolbar>
           <IonButtons slot="start">
             { ios &&
-              <IonButton onClick={onDismissModal}>Cancel</IonButton>
+              <IonButton onClick={onDismissModal}>Annuler</IonButton>
             }
             { !ios &&
-              <IonButton onClick={handleDeselectTous}>Reset</IonButton>
+              <IonButton onClick={handleDeselectTous}>Déselectionner</IonButton>
             }
           </IonButtons>
 
           <IonTitle>
-            Filter Evenements
+            Filtrer Evenements
           </IonTitle>
 
           <IonButtons slot="end">
-            <IonButton onClick={onDismissModal} strong>Done</IonButton>
+            <IonButton onClick={onDismissModal} strong>OK</IonButton>
           </IonButtons>
         </IonToolbar>
       </IonHeader>
@@ -104,10 +104,10 @@ const EvenementListFilter: React.FC<EvenementListFilterProps> = ({ allTracks, fi
         <IonFooter>
           <IonToolbar>
             <IonButtons slot="start">
-              <IonButton onClick={handleDeselectTous}>Deselect Tous</IonButton>
+              <IonButton onClick={handleDeselectTous}>Tout déselectionner</IonButton>
             </IonButtons>
             <IonButtons slot="end">
-              <IonButton onClick={handleSelectTous}>Select Tous</IonButton>
+              <IonButton onClick={handleSelectTous}>Tout sélectionner</IonButton>
             </IonButtons>
           </IonToolbar>
         </IonFooter>

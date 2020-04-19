@@ -54,7 +54,7 @@ const Compte: React.FC<CompteProps> = ({ setUsername, username }) => {
         isOpen={showAlert}
         header="Change Username"
         buttons={[
-          'Cancel',
+          'Annuler',
           {
             text: 'Ok',
             handler: (data) => {

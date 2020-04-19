@@ -22,7 +22,7 @@ const EvenementListItem: React.FC<EvenementListItemProps> = ({ isFavorite, onAdd
     onAddFavorite(evenement.id);
     onShowAlert('Favorite already added', [
       {
-        text: 'Cancel',
+        text: 'Annuler',
         handler: dismissAlert
       },
       {

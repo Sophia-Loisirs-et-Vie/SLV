@@ -43,10 +43,10 @@ const SpeakerDetail: React.FC<SpeakerDetailProps> = ({ speaker }) => {
         }
       },
       {
-        text: 'Cancel',
-        role: 'cancel',
+        text: 'Annuler',
+        role: 'annuler',
         handler: () => {
-          console.log('Cancel clicked');
+          console.log('Annuler clicked');
         }
       }
     ]);

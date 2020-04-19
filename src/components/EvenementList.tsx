@@ -38,7 +38,7 @@ const EvenementList: React.FC<EvenementListProps> = ({ addFavorite, removeFavori
     return (
       <IonList>
         <IonListHeader>
-          No Evenements Found
+          Aucun événement trouvé
         </IonListHeader>
       </IonList>
     );
