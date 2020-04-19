@@ -12,7 +12,7 @@ import './Menu.css'
 const routes = {
   appPages: [
     { title: 'Agenda', path: '/tabs/agenda', icon: calendarOutline },
-    { title: 'Speakers', path: '/tabs/speakers', icon: peopleOutline },
+    { title: 'Lieux', path: '/tabs/lieux', icon: peopleOutline },
     { title: 'Carte', path: '/tabs/map', icon: mapOutline },
     { title: 'A propos', path: '/tabs/apropos', icon: informationCircleOutline }
   ],

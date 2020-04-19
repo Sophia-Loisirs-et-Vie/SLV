@@ -6,7 +6,7 @@ const getAgenda = (state: AppState) => {
 
   return state.data.agenda
 };
-export const getSpeakers = (state: AppState) => state.data.speakers;
+export const getLieux = (state: AppState) => state.data.lieux;
 const getEvenements = (state: AppState) => state.data.evenements;
 const getFilteredTracks = (state: AppState) => state.data.filteredTracks;
 const getFavoriteIds = (state: AppState) => state.data.favoris;
@@ -104,26 +104,26 @@ export const getEvenement = createSelector(
   }
 );
 
-export const getSpeaker = createSelector(
-  getSpeakers, getIdParam,
-  (speakers, id) => speakers.find(x => x.id === id)
+export const getLieu = createSelector(
+  getLieux, getIdParam,
+  (lieux, id) => lieux.find(x => x.id === id)
 );
 
-export const getSpeakerEvenements = createSelector(
+export const getLieuEvenements = createSelector(
   getEvenements,
   (evenements) => {
-    const speakerEvenements: { [key: string]: Evenement[] } = {};
+    const lieuEvenements: { [key: string]: Evenement[] } = {};
 
     evenements.forEach(evenement => {
-      evenement.speakerNames && evenement.speakerNames.forEach(name => {
-        if (speakerEvenements[name]) {
-          speakerEvenements[name].push(evenement);
+      evenement.lieuNames && evenement.lieuNames.forEach(name => {
+        if (lieuEvenements[name]) {
+          lieuEvenements[name].push(evenement);
         } else {
-          speakerEvenements[name] = [evenement];
+          lieuEvenements[name] = [evenement];
         }
       })
     });
-    return speakerEvenements;
+    return lieuEvenements;
   }
 );
 

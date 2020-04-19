@@ -15,6 +15,6 @@ export interface Evenement {
   name: string;
   location: string;
   description: string;
-  speakerNames: string[];
+  lieuNames: string[];
   tracks: string[];
 }

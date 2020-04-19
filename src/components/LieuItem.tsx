@@ -1,26 +1,26 @@
 import React from 'react';
 import { Evenement } from '../models/Agenda';
-import { Speaker } from '../models/Speaker';
+import { Lieu } from '../models/Lieu';
 import { IonCard, IonCardHeader, IonItem, IonLabel, IonAvatar, IonCardContent, IonList } from '@ionic/react';
 
 
-interface SpeakerItemProps {
-  speaker: Speaker;
+interface LieuItemProps {
+  lieu: Lieu;
   evenements: Evenement[];
 }
 
-const SpeakerItem: React.FC<SpeakerItemProps> = ({ speaker, evenements }) => {
+const LieuItem: React.FC<LieuItemProps> = ({ lieu, evenements }) => {
   return (
     <>
-      <IonCard className="speaker-card">
+      <IonCard className="lieu-card">
         <IonCardHeader>
-          <IonItem button detail={false} lines="none" className="speaker-item" routerLink={`/tabs/speakers/${speaker.id}`}>
+          <IonItem button detail={false} lines="none" className="lieu-item" routerLink={`/tabs/lieux/${lieu.id}`}>
             <IonAvatar slot="start">
-              <img src={process.env.PUBLIC_URL + speaker.profilePic} alt="Speaker profile pic" />
+              <img src={process.env.PUBLIC_URL + lieu.profilePic} alt="Lieu profile pic" />
             </IonAvatar>
             <IonLabel>
-              <h2>{speaker.name}</h2>
-              <p>{speaker.title}</p>
+              <h2>{lieu.name}</h2>
+              <p>{lieu.title}</p>
             </IonLabel>
           </IonItem>
         </IonCardHeader>
@@ -28,15 +28,15 @@ const SpeakerItem: React.FC<SpeakerItemProps> = ({ speaker, evenements }) => {
         <IonCardContent>
           <IonList lines="none">
             {evenements.map(evenement => (
-              <IonItem detail={false} routerLink={`/tabs/speakers/evenements/${evenement.id}`} key={evenement.name}>
+              <IonItem detail={false} routerLink={`/tabs/lieux/evenements/${evenement.id}`} key={evenement.name}>
                 <IonLabel>
                   <h3>{evenement.name}</h3>
                 </IonLabel>
               </IonItem>
             ))}
-            <IonItem detail={false} routerLink={`/tabs/speakers/${speaker.id}`}>
+            <IonItem detail={false} routerLink={`/tabs/lieux/${lieu.id}`}>
               <IonLabel>
-                <h3>About {speaker.name}</h3>
+                <h3>About {lieu.name}</h3>
               </IonLabel>
             </IonItem>
           </IonList>
@@ -46,4 +46,4 @@ const SpeakerItem: React.FC<SpeakerItemProps> = ({ speaker, evenements }) => {
   );
 };
 
-export default SpeakerItem;
+export default LieuItem;

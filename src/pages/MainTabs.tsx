@@ -3,8 +3,8 @@ import { IonTabs, IonRouterOutlet, IonTabBar, IonTabButton, IonIcon, IonLabel } 
 import { Route, Redirect } from 'react-router';
 import { calendar, location, informationCircle, people } from 'ionicons/icons';
 import AgendaPage from './AgendaPage';
-import SpeakerList from './SpeakerList';
-import SpeakerDetail from './SpeakerDetail';
+import LieuList from './LieuList';
+import LieuDetail from './LieuDetail';
 import EvenementDetail from './EvenementDetail';
 import CarteView from './CarteView';
 import APropos from './APropos';
@@ -22,10 +22,10 @@ const MainTabs: React.FC<MainTabsProps> = () => {
           Use the component prop when your component depends on the RouterComponentProps passed in automatically.
         */}
         <Route path="/tabs/agenda" render={() => <AgendaPage />} exact={true} />
-        <Route path="/tabs/speakers" render={() => <SpeakerList />} exact={true} />
-        <Route path="/tabs/speakers/:id" component={SpeakerDetail} exact={true} />
+        <Route path="/tabs/lieux" render={() => <LieuList />} exact={true} />
+        <Route path="/tabs/lieux/:id" component={LieuDetail} exact={true} />
         <Route path="/tabs/agenda/:id" component={EvenementDetail} />
-        <Route path="/tabs/speakers/evenements/:id" component={EvenementDetail} />
+        <Route path="/tabs/lieux/evenements/:id" component={EvenementDetail} />
         <Route path="/tabs/map" render={() => <CarteView />} exact={true} />
         <Route path="/tabs/apropos" render={() => <APropos />} exact={true} />
       </IonRouterOutlet>
@@ -34,9 +34,9 @@ const MainTabs: React.FC<MainTabsProps> = () => {
           <IonIcon icon={calendar} />
           <IonLabel>Agenda</IonLabel>
         </IonTabButton>
-        <IonTabButton tab="speakers" href="/tabs/speakers">
+        <IonTabButton tab="lieux" href="/tabs/lieux">
           <IonIcon icon={people} />
-          <IonLabel>Speakers</IonLabel>
+          <IonLabel>Lieux</IonLabel>
         </IonTabButton>
         <IonTabButton tab="map" href="/tabs/map">
           <IonIcon icon={location} />

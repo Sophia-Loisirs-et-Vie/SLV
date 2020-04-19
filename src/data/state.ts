@@ -6,7 +6,7 @@ export const initialState: AppState = {
   data: {
     agenda: { groups: [] } as any,
     evenements: [],
-    speakers: [],
+    lieux: [],
     favoris: [],
     locations: [],
     allTracks: [],
