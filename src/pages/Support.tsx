@@ -47,7 +47,7 @@ const Support: React.FC<SupportProps> = () => {
         <form noValidate onSubmit={send}>
           <IonList>
             <IonItem>
-              <IonLabel position="stacked" color="primary">Enter your support message below</IonLabel>
+              <IonLabel position="stacked" color="primary">Votre message</IonLabel>
               <IonTextarea name="message" value={message} spellCheck={false} autocapitalize="off" rows={6} onIonChange={e => setMessage(e.detail.value!)}
                 required>
               </IonTextarea>
@@ -55,14 +55,14 @@ const Support: React.FC<SupportProps> = () => {
 
             {formSubmitted && messageError && <IonText color="danger">
               <p className="ion-padding-start">
-                Support message requis
+                Message requis
               </p>
             </IonText>}
           </IonList>
 
           <IonRow>
             <IonCol>
-              <IonButton type="submit" expand="block">Submit</IonButton>
+              <IonButton type="submit" expand="block">Valider</IonButton>
             </IonCol>
           </IonRow>
         </form>
