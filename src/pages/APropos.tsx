@@ -109,7 +109,7 @@ const APropos: React.FC<AProposProps> = () => {
             </IonItem>
             <IonItem>
               <IonLabel>
-               Password
+               MotDePasse
               </IonLabel>
               <IonLabel className="ion-text-end">
                 makegoodthings

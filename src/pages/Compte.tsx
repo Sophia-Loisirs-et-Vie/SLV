@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, IonList, IonItem, IonAlert } from '@ionic/react';
 import './Compte.scss';
-import { setUsername } from '../data/user/user.actions';
+import { setUtilisateur } from '../data/user/user.actions';
 import { connect } from '../data/connect';
 import { RouteComponentProps } from 'react-router';
 
 interface OwnProps extends RouteComponentProps { }
 
 interface StateProps {
-  username?: string;
+  utilisateur?: string;
 }
 
 interface DispatchProps {
-  setUsername: typeof setUsername;
+  setUtilisateur: typeof setUtilisateur;
 }
 
 interface CompteProps extends OwnProps, StateProps, DispatchProps { }
 
-const Compte: React.FC<CompteProps> = ({ setUsername, username }) => {
+const Compte: React.FC<CompteProps> = ({ setUtilisateur, utilisateur }) => {
 
   const [showAlert, setShowAlert] = useState(false);
 
@@ -36,14 +36,14 @@ const Compte: React.FC<CompteProps> = ({ setUsername, username }) => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        {username &&
+        {utilisateur &&
           (<div className="ion-padding-top ion-text-center">
             <img src="https://www.gravatar.com/avatar?d=mm&s=140" alt="avatar" />
-            <h2>{ username }</h2>
+            <h2>{ utilisateur }</h2>
             <IonList inset>
               <IonItem onClick={() => clicked('Update Picture')}>Update Picture</IonItem>
-              <IonItem onClick={() => setShowAlert(true)}>Change Username</IonItem>
-              <IonItem onClick={() => clicked('Change Password')}>Change Password</IonItem>
+              <IonItem onClick={() => setShowAlert(true)}>Change Utilisateur</IonItem>
+              <IonItem onClick={() => clicked('Change MotDePasse')}>Change MotDePasse</IonItem>
               <IonItem routerLink="/support" routerDirection="none">Support</IonItem>
               <IonItem routerLink="/deconnexion" routerDirection="none">Deconnexion</IonItem>
             </IonList>
@@ -52,22 +52,22 @@ const Compte: React.FC<CompteProps> = ({ setUsername, username }) => {
       </IonContent>
       <IonAlert
         isOpen={showAlert}
-        header="Change Username"
+        header="Change Utilisateur"
         buttons={[
           'Annuler',
           {
             text: 'Ok',
             handler: (data) => {
-              setUsername(data.username);
+              setUtilisateur(data.utilisateur);
             }
           }
         ]}
         inputs={[
           {
             type: 'text',
-            name: 'username',
-            value: username,
-            placeholder: 'username'
+            name: 'utilisateur',
+            value: utilisateur,
+            placeholder: 'utilisateur'
           }
         ]}
         onDidDismiss={() => setShowAlert(false)}
@@ -78,10 +78,10 @@ const Compte: React.FC<CompteProps> = ({ setUsername, username }) => {
 
 export default connect<OwnProps, StateProps, DispatchProps>({
   mapStateToProps: (state) => ({
-    username: state.user.username
+    utilisateur: state.user.utilisateur
   }),
   mapDispatchToProps: {
-    setUsername,
+    setUtilisateur,
   },
   component: Compte
 })

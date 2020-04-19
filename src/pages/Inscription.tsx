@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText } from '@ionic/react';
 import './Connexion.scss';
-import { setIsLoggedIn, setUsername } from '../data/user/user.actions';
+import { setIsLoggedIn, setUtilisateur } from '../data/user/user.actions';
 import { connect } from '../data/connect';
 import { RouteComponentProps } from 'react-router';
 
@@ -9,32 +9,32 @@ interface OwnProps extends RouteComponentProps {}
 
 interface DispatchProps {
   setIsLoggedIn: typeof setIsLoggedIn;
-  setUsername: typeof setUsername;
+  setUtilisateur: typeof setUtilisateur;
 }
 
 interface ConnexionProps extends OwnProps,  DispatchProps { }
 
-const Connexion: React.FC<ConnexionProps> = ({setIsLoggedIn, history, setUsername: setUsernameAction}) => {
+const Connexion: React.FC<ConnexionProps> = ({setIsLoggedIn, history, setUtilisateur: setUtilisateurAction}) => {
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [utilisateur, setUtilisateur] = useState('');
+  const [motdepasse, setMotDePasse] = useState('');
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [usernameError, setUsernameError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
+  const [utilisateurError, setUtilisateurError] = useState(false);
+  const [motdepasseError, setMotDePasseError] = useState(false);
 
   const connexion = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormSubmitted(true);
-    if(!username) {
-      setUsernameError(true);
+    if(!utilisateur) {
+      setUtilisateurError(true);
     }
-    if(!password) {
-      setPasswordError(true);
+    if(!motdepasse) {
+      setMotDePasseError(true);
     }
 
-    if(username && password) {
+    if(utilisateur && motdepasse) {
       await setIsLoggedIn(true);
-      await setUsernameAction(username);
+      await setUtilisateurAction(utilisateur);
       history.push('/tabs/agenda', {direction: 'none'});
     }
   };
@@ -58,33 +58,33 @@ const Connexion: React.FC<ConnexionProps> = ({setIsLoggedIn, history, setUsernam
         <form noValidate onSubmit={connexion}>
           <IonList>
             <IonItem>
-              <IonLabel position="stacked" color="primary">Username</IonLabel>
-              <IonInput name="username" type="text" value={username} spellCheck={false} autocapitalize="off" onIonChange={e => {
-                setUsername(e.detail.value!);
-                setUsernameError(false);
+              <IonLabel position="stacked" color="primary">Utilisateur</IonLabel>
+              <IonInput name="utilisateur" type="text" value={utilisateur} spellCheck={false} autocapitalize="off" onIonChange={e => {
+                setUtilisateur(e.detail.value!);
+                setUtilisateurError(false);
               }}
                 required>
               </IonInput>
             </IonItem>
 
-            {formSubmitted && usernameError && <IonText color="danger">
+            {formSubmitted && utilisateurError && <IonText color="danger">
               <p className="ion-padding-start">
-                Username is required
+                Utilisateur requis
               </p>
             </IonText>}
 
             <IonItem>
-              <IonLabel position="stacked" color="primary">Password</IonLabel>
-              <IonInput name="password" type="password" value={password} onIonChange={e => {
-                setPassword(e.detail.value!);
-                setPasswordError(false);
+              <IonLabel position="stacked" color="primary">Mot de passe</IonLabel>
+              <IonInput name="motdepasse" type="password" value={motdepasse} onIonChange={e => {
+                setMotDePasse(e.detail.value!);
+                setMotDePasseError(false);
               }}>
               </IonInput>
             </IonItem>
 
-            {formSubmitted && passwordError && <IonText color="danger">
+            {formSubmitted && motdepasseError && <IonText color="danger">
               <p className="ion-padding-start">
-                Password is required
+              Mot de passe requis
               </p>
             </IonText>}
           </IonList>
@@ -105,7 +105,7 @@ const Connexion: React.FC<ConnexionProps> = ({setIsLoggedIn, history, setUsernam
 export default connect<OwnProps, {}, DispatchProps>({
   mapDispatchToProps: {
     setIsLoggedIn,
-    setUsername
+    setUtilisateur
   },
   component: Connexion
 })

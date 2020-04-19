@@ -1,4 +1,4 @@
-import { getUserData, setIsLoggedInData, setUsernameData, setHasSeenTutorialData, setDarkmodeData } from '../dataApi';
+import { getUserData, setIsLoggedInData, setUtilisateurData, setHasSeenTutorialData, setDarkmodeData } from '../dataApi';
 import { ActionType } from '../../util/types';
 import { UserState } from './user.state';
 
@@ -22,7 +22,7 @@ export const setData = (data: Partial<UserState>) => ({
 
 export const deconnexionUser = () => async (dispatch: React.Dispatch<any>) => {
   await setIsLoggedInData(false);
-  dispatch(setUsername());
+  dispatch(setUtilisateur());
 };
 
 export const setIsLoggedIn = (loggedIn: boolean) => async (dispatch: React.Dispatch<any>) => {
@@ -33,11 +33,11 @@ export const setIsLoggedIn = (loggedIn: boolean) => async (dispatch: React.Dispa
   } as const)
 };
 
-export const setUsername = (username?: string) => async (dispatch: React.Dispatch<any>) => {
-  await setUsernameData(username);
+export const setUtilisateur = (utilisateur?: string) => async (dispatch: React.Dispatch<any>) => {
+  await setUtilisateurData(utilisateur);
   return ({
-    type: 'set-username',
-    username
+    type: 'set-utilisateur',
+    utilisateur
   } as const);
 };
 
@@ -61,6 +61,6 @@ export type UserActions =
   | ActionType<typeof setLoading>
   | ActionType<typeof setData>
   | ActionType<typeof setIsLoggedIn>
-  | ActionType<typeof setUsername>
+  | ActionType<typeof setUtilisateur>
   | ActionType<typeof setHasSeenTutorial>
   | ActionType<typeof setDarkMode>

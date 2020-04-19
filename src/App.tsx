@@ -27,7 +27,7 @@ import MainTabs from './pages/MainTabs';
 import { connect } from './data/connect';
 import { AppContextProvider } from './data/AppContext';
 import { loadConfData } from './data/evenements/evenements.actions';
-import { setIsLoggedIn, setUsername, loadUserData } from './data/user/user.actions';
+import { setIsLoggedIn, setUtilisateur, loadUserData } from './data/user/user.actions';
 import Compte from './pages/Compte';
 import Connexion from './pages/Connexion';
 import Inscription from './pages/Inscription';
@@ -53,12 +53,12 @@ interface DispatchProps {
   loadConfData: typeof loadConfData;
   loadUserData: typeof loadUserData;
   setIsLoggedIn: typeof setIsLoggedIn;
-  setUsername: typeof setUsername;
+  setUtilisateur: typeof setUtilisateur;
 }
 
 interface IonicAppProps extends StateProps, DispatchProps { }
 
-const IonicApp: React.FC<IonicAppProps> = ({ darkMode, agenda, setIsLoggedIn, setUsername, loadConfData, loadUserData }) => {
+const IonicApp: React.FC<IonicAppProps> = ({ darkMode, agenda, setIsLoggedIn, setUtilisateur, loadConfData, loadUserData }) => {
 
   useEffect(() => {
     loadUserData();
@@ -83,7 +83,7 @@ const IonicApp: React.FC<IonicAppProps> = ({ darkMode, agenda, setIsLoggedIn, se
                 <Route path="/tutorial" component={Tutorial} />
                 <Route path="/deconnexion" render={() => {
                   setIsLoggedIn(false);
-                  setUsername(undefined);
+                  setUtilisateur(undefined);
                   return <Redirect to="/tabs" />
                 }} />
                 <Route path="/" component={HomeOrTutorial} exact />
@@ -102,6 +102,6 @@ const IonicAppConnected = connect<{}, StateProps, DispatchProps>({
     darkMode: state.user.darkMode,
     agenda: state.data.agenda
   }),
-  mapDispatchToProps: { loadConfData, loadUserData, setIsLoggedIn, setUsername },
+  mapDispatchToProps: { loadConfData, loadUserData, setIsLoggedIn, setUtilisateur },
   component: IonicApp
 });

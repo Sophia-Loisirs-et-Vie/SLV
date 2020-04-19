@@ -10,7 +10,7 @@ const locationsUrl = '/assets/data/locations.json';
 
 const HAS_LOGGED_IN = 'hasLoggedIn';
 const HAS_SEEN_TUTORIAL = 'hasSeenTutorial';
-const USERNAME = 'username';
+const UTILISATEUR = 'utilisateur';
 const DARKMODE = 'darkMode';
 
 export const getConfData = async () => {
@@ -43,16 +43,16 @@ export const getUserData = async () => {
     Storage.get({ key: HAS_LOGGED_IN }),
     Storage.get({ key: DARKMODE }),
     Storage.get({ key: HAS_SEEN_TUTORIAL }),
-    Storage.get({ key: USERNAME })]);
+    Storage.get({ key: UTILISATEUR })]);
   const isLoggedin = await response[0].value === 'true';
   const darkMode = await response[1].value === 'true';
   const hasSeenTutorial = await response[2].value === 'true';
-  const username = await response[3].value || undefined;
+  const utilisateur = await response[3].value || undefined;
   const data = {
     isLoggedin,
     darkMode,
     hasSeenTutorial,
-    username
+    utilisateur
   }
   return data;
 }
@@ -69,11 +69,11 @@ export const setHasSeenTutorialData = async (hasSeenTutorial: boolean) => {
   await Storage.set({ key: HAS_SEEN_TUTORIAL, value: JSON.stringify(hasSeenTutorial) });
 }
 
-export const setUsernameData = async (username?: string) => {
-  if (!username) {
-    await Storage.remove({ key: USERNAME });
+export const setUtilisateurData = async (utilisateur?: string) => {
+  if (!utilisateur) {
+    await Storage.remove({ key: UTILISATEUR });
   } else {
-    await Storage.set({ key: USERNAME, value: username });
+    await Storage.set({ key: UTILISATEUR, value: utilisateur });
   }
 }
 
