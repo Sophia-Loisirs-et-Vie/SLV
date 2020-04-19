@@ -10,12 +10,12 @@ export const loadApplData = () => async (dispatch: React.Dispatch<any>) => {
 }
 
 export const setLoading = (isLoading: boolean) => ({
-  type: 'set-conf-loading',
+  type: 'set-appl-loading',
   isLoading
 } as const);
 
 export const setData = (data: Partial<ApplState>) => ({
-  type: 'set-conf-data',
+  type: 'set-appl-data',
   data
 } as const);
 

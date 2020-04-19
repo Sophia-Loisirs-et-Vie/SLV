@@ -3,10 +3,10 @@ import { ApplState } from './appl.state';
 
 export const evenementsReducer = (state: ApplState, action: EvenementsActions): ApplState => {
   switch (action.type) {
-    case 'set-conf-loading': {
+    case 'set-appl-loading': {
       return { ...state, loading: action.isLoading };
     }
-    case 'set-conf-data': {
+    case 'set-appl-data': {
       return { ...state, ...action.data };
     }
     case 'add-favorite': {

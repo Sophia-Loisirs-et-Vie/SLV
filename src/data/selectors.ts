@@ -132,9 +132,9 @@ export const mapCenter = (state: AppState) => {
   if (item == null) {
     return {
       id: 1,
-      name: 'Map Center',
-      lat: 43.071584,
-      lng: -89.380120
+      name: 'Centre Carte',
+      lat: 43.50,
+      lng: 7.07
     };
   }
   return item;

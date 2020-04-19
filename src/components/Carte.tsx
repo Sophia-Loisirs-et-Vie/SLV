@@ -17,7 +17,7 @@ const Carte: React.FC<CarteProps> = ({ mapCenter, locations }) => {
         lat: mapCenter.lat,
         lng: mapCenter.lng
       },
-      zoom: 16
+      zoom: 8
     });
 
     addMarkers();
