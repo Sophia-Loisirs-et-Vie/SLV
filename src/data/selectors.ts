@@ -1,10 +1,10 @@
 import { createSelector } from 'reselect';
-import { Schedule, Session, ScheduleGroup } from '../models/Schedule';
+import { Agenda, Session, AgendaGroup } from '../models/Agenda';
 import { AppState } from './state';
 
-const getSchedule = (state: AppState) => {
+const getAgenda = (state: AppState) => {
 
-  return state.data.schedule
+  return state.data.agenda
 };
 export const getSpeakers = (state: AppState) => state.data.speakers;
 const getSessions = (state: AppState) => state.data.sessions;
@@ -12,11 +12,11 @@ const getFilteredTracks = (state: AppState) => state.data.filteredTracks;
 const getFavoriteIds = (state: AppState) => state.data.favorites;
 const getSearchText = (state: AppState) => state.data.searchText;
 
-export const getFilteredSchedule = createSelector(
-  getSchedule, getFilteredTracks,
-  (schedule, filteredTracks) => {
-    const groups: ScheduleGroup[] = [];
-    schedule.groups.forEach(group => {
+export const getFilteredAgenda = createSelector(
+  getAgenda, getFilteredTracks,
+  (agenda, filteredTracks) => {
+    const groups: AgendaGroup[] = [];
+    agenda.groups.forEach(group => {
       const sessions: Session[] = [];
       group.sessions.forEach(session => {
         session.tracks.forEach(track => {
@@ -26,7 +26,7 @@ export const getFilteredSchedule = createSelector(
         })
       })
       if (sessions.length) {
-        const groupToAdd: ScheduleGroup = {
+        const groupToAdd: AgendaGroup = {
           time: group.time,
           sessions
         }
@@ -35,24 +35,24 @@ export const getFilteredSchedule = createSelector(
     });
 
     return {
-      date: schedule.date,
+      date: agenda.date,
       groups
-    } as Schedule;
+    } as Agenda;
   }
 );
 
-export const getSearchedSchedule = createSelector(
-  getFilteredSchedule, getSearchText,
-  (schedule, searchText) => {
+export const getSearchedAgenda = createSelector(
+  getFilteredAgenda, getSearchText,
+  (agenda, searchText) => {
     if (!searchText) {
-      return schedule;
+      return agenda;
     }
-    const groups: ScheduleGroup[] = [];
-    schedule.groups.forEach(group => {
+    const groups: AgendaGroup[] = [];
+    agenda.groups.forEach(group => {
 
       const sessions = group.sessions.filter(s => s.name.toLowerCase().indexOf(searchText.toLowerCase()) > -1)
       if (sessions.length) {
-        const groupToAdd: ScheduleGroup = {
+        const groupToAdd: AgendaGroup = {
           time: group.time,
           sessions
         }
@@ -60,25 +60,25 @@ export const getSearchedSchedule = createSelector(
       }
     });
     return {
-      date: schedule.date,
+      date: agenda.date,
       groups
-    } as Schedule;
+    } as Agenda;
   }
 )
 
-export const getScheduleList = createSelector(
-  getSearchedSchedule,
-  (schedule) => schedule
+export const getAgendaList = createSelector(
+  getSearchedAgenda,
+  (agenda) => agenda
 );
 
 export const getGroupedFavorites = createSelector(
-  getScheduleList, getFavoriteIds,
-  (schedule, favoriteIds) => {
-    const groups: ScheduleGroup[] = [];
-    schedule.groups.forEach(group => {
+  getAgendaList, getFavoriteIds,
+  (agenda, favoriteIds) => {
+    const groups: AgendaGroup[] = [];
+    agenda.groups.forEach(group => {
       const sessions = group.sessions.filter(s => favoriteIds.indexOf(s.id) > -1)
       if (sessions.length) {
-        const groupToAdd: ScheduleGroup = {
+        const groupToAdd: AgendaGroup = {
           time: group.time,
           sessions
         }
@@ -86,9 +86,9 @@ export const getGroupedFavorites = createSelector(
       }
     });
     return {
-      date: schedule.date,
+      date: agenda.date,
       groups
-    } as Schedule;
+    } as Agenda;
   }
 );
 

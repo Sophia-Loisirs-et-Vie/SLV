@@ -1,5 +1,5 @@
 import React from 'react';
-import { Session } from '../models/Schedule';
+import { Session } from '../models/Agenda';
 import { Speaker } from '../models/Speaker';
 import { IonCard, IonCardHeader, IonItem, IonLabel, IonAvatar, IonCardContent, IonList } from '@ionic/react';
 

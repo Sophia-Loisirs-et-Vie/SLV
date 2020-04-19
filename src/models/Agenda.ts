@@ -1,9 +1,9 @@
-export interface Schedule {
+export interface Agenda {
   date: string;
-  groups: ScheduleGroup[]
+  groups: AgendaGroup[]
 }
 
-export interface ScheduleGroup {
+export interface AgendaGroup {
   time: string;
   sessions: Session[];
 }

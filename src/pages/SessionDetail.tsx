@@ -6,7 +6,7 @@ import * as selectors from '../data/selectors';
 import { starOutline, star, share, cloudDownload } from 'ionicons/icons';
 import './SessionDetail.scss';
 import { addFavorite, removeFavorite } from '../data/sessions/sessions.actions';
-import { Session } from '../models/Schedule';
+import { Session } from '../models/Agenda';
 
 interface OwnProps extends RouteComponentProps { };
 
@@ -43,7 +43,7 @@ const SessionDetail: React.FC<SessionDetailProps> = ({ session, addFavorite, rem
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton defaultHref="/tabs/schedule"></IonBackButton>
+            <IonBackButton defaultHref="/tabs/agenda"></IonBackButton>
           </IonButtons>
           <IonButtons slot="end">
             <IonButton onClick={() => toggleFavorite()}>

@@ -2,7 +2,7 @@ import React  from 'react';
 import { IonTabs, IonRouterOutlet, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/react';
 import { Route, Redirect } from 'react-router';
 import { calendar, location, informationCircle, people } from 'ionicons/icons';
-import SchedulePage from './SchedulePage';
+import AgendaPage from './AgendaPage';
 import SpeakerList from './SpeakerList';
 import SpeakerDetail from './SpeakerDetail';
 import SessionDetail from './SessionDetail';
@@ -16,23 +16,23 @@ const MainTabs: React.FC<MainTabsProps> = () => {
   return (
     <IonTabs>
       <IonRouterOutlet>
-        <Redirect exact path="/tabs" to="/tabs/schedule" />
+        <Redirect exact path="/tabs" to="/tabs/agenda" />
         {/*
           Using the render method prop cuts down the number of renders your components will have due to route changes.
           Use the component prop when your component depends on the RouterComponentProps passed in automatically.
         */}
-        <Route path="/tabs/schedule" render={() => <SchedulePage />} exact={true} />
+        <Route path="/tabs/agenda" render={() => <AgendaPage />} exact={true} />
         <Route path="/tabs/speakers" render={() => <SpeakerList />} exact={true} />
         <Route path="/tabs/speakers/:id" component={SpeakerDetail} exact={true} />
-        <Route path="/tabs/schedule/:id" component={SessionDetail} />
+        <Route path="/tabs/agenda/:id" component={SessionDetail} />
         <Route path="/tabs/speakers/sessions/:id" component={SessionDetail} />
         <Route path="/tabs/map" render={() => <CarteView />} exact={true} />
         <Route path="/tabs/apropos" render={() => <APropos />} exact={true} />
       </IonRouterOutlet>
       <IonTabBar slot="bottom">
-        <IonTabButton tab="schedule" href="/tabs/schedule">
+        <IonTabButton tab="agenda" href="/tabs/agenda">
           <IonIcon icon={calendar} />
-          <IonLabel>Schedule</IonLabel>
+          <IonLabel>Agenda</IonLabel>
         </IonTabButton>
         <IonTabButton tab="speakers" href="/tabs/speakers">
           <IonIcon icon={people} />
