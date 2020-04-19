@@ -7,40 +7,40 @@ import { logoAngular, call, document, logoIonic, hammer, restaurant, cog, colorP
 import './EvenementListFilter.css'
 
 import { connect } from '../data/connect';
-import { updateFilteredTracks } from '../data/evenements/evenements.actions';
+import { updateFilteredTags } from '../data/evenements/evenements.actions';
 
 interface OwnProps {
   onDismissModal: () => void;
 }
 
 interface StateProps {
-  allTracks: string[],
-  filteredTracks: string[]
+  allTags: string[],
+  filteredTags: string[]
 }
 
 interface DispatchProps {
-  updateFilteredTracks: typeof updateFilteredTracks;
+  updateFilteredTags: typeof updateFilteredTags;
 }
 
 type EvenementListFilterProps = OwnProps & StateProps & DispatchProps;
 
-const EvenementListFilter: React.FC<EvenementListFilterProps> = ({ allTracks, filteredTracks, onDismissModal, updateFilteredTracks }) => {
+const EvenementListFilter: React.FC<EvenementListFilterProps> = ({ allTags, filteredTags, onDismissModal, updateFilteredTags }) => {
   const ios = getMode() === 'ios';
 
   const toggleTrackFilter = (track: string) => {
-    if (filteredTracks.indexOf(track) > -1) {
-      updateFilteredTracks(filteredTracks.filter(x => x !== track));
+    if (filteredTags.indexOf(track) > -1) {
+      updateFilteredTags(filteredTags.filter(x => x !== track));
     } else {
-      updateFilteredTracks([...filteredTracks, track]);
+      updateFilteredTags([...filteredTags, track]);
     }
   };
 
   const handleDeselectTous = () => {
-    updateFilteredTracks([]);
+    updateFilteredTags([]);
   };
 
   const handleSelectTous = () => {
-    updateFilteredTracks([...allTracks]);
+    updateFilteredTags([...allTags]);
   };
 
   const iconMap: { [key: string]: any } = {
@@ -81,9 +81,9 @@ const EvenementListFilter: React.FC<EvenementListFilterProps> = ({ allTracks, fi
 
       <IonContent>
         <IonList lines={ ios ? 'inset' : 'full'}>
-          <IonListHeader>Tracks</IonListHeader>
+          <IonListHeader>Tags</IonListHeader>
 
-          {allTracks.map((track, index) => (
+          {allTags.map((track, index) => (
             <IonItem key={track}>
               { ios &&
                 <IonIcon slot="start" icon={iconMap[track]} color="medium" />
@@ -91,7 +91,7 @@ const EvenementListFilter: React.FC<EvenementListFilterProps> = ({ allTracks, fi
               <IonLabel>{track}</IonLabel>
               <IonCheckbox
                 onClick={() => toggleTrackFilter(track)}
-                checked={filteredTracks.indexOf(track) !== -1}
+                checked={filteredTags.indexOf(track) !== -1}
                 color="primary"
                 value={track}
               ></IonCheckbox>
@@ -118,11 +118,11 @@ const EvenementListFilter: React.FC<EvenementListFilterProps> = ({ allTracks, fi
 
 export default connect<OwnProps, StateProps, DispatchProps>({
   mapStateToProps: (state) => ({
-    allTracks: state.data.allTracks,
-    filteredTracks: state.data.filteredTracks
+    allTags: state.data.allTags,
+    filteredTags: state.data.filteredTags
   }),
   mapDispatchToProps: {
-    updateFilteredTracks
+    updateFilteredTags
   },
   component: EvenementListFilter
 })

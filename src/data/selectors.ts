@@ -8,19 +8,19 @@ const getAgenda = (state: AppState) => {
 };
 export const getLieux = (state: AppState) => state.data.lieux;
 const getEvenements = (state: AppState) => state.data.evenements;
-const getFilteredTracks = (state: AppState) => state.data.filteredTracks;
+const getFilteredTags = (state: AppState) => state.data.filteredTags;
 const getFavoriteIds = (state: AppState) => state.data.favoris;
 const getSearchText = (state: AppState) => state.data.searchText;
 
 export const getFilteredAgenda = createSelector(
-  getAgenda, getFilteredTracks,
-  (agenda, filteredTracks) => {
+  getAgenda, getFilteredTags,
+  (agenda, filteredTags) => {
     const groups: AgendaGroup[] = [];
     agenda.groups.forEach(group => {
       const evenements: Evenement[] = [];
       group.evenements.forEach(evenement => {
         evenement.tracks.forEach(track => {
-          if (filteredTracks.indexOf(track) > -1) {
+          if (filteredTags.indexOf(track) > -1) {
             evenements.push(evenement);
           }
         })

@@ -13,7 +13,7 @@ const HAS_SEEN_TUTORIAL = 'hasSeenTutorial';
 const UTILISATEUR = 'utilisateur';
 const DARKMODE = 'darkMode';
 
-export const getConfData = async () => {
+export const getApplData = async () => {
   const response = await Promise.all([
     fetch(dataUrl),
     fetch(locationsUrl)]);
@@ -22,7 +22,7 @@ export const getConfData = async () => {
   const evenements = parseEvenements(agenda);
   const lieux = responseData.lieux as Lieu[];
   const locations = await response[1].json() as Location[];
-  const allTracks = evenements
+  const allTags = evenements
     .reduce((all, evenement) => all.concat(evenement.tracks), [] as string[])
     .filter((trackName, index, array) => array.indexOf(trackName) === index)
     .sort();
@@ -32,8 +32,8 @@ export const getConfData = async () => {
     evenements,
     locations,
     lieux,
-    allTracks,
-    filteredTracks: [...allTracks]
+    allTags,
+    filteredTags: [...allTags]
   }
   return data;
 }

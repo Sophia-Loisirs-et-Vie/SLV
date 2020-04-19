@@ -1,7 +1,7 @@
 import { EvenementsActions } from './evenements.actions';
-import { ConfState } from './conf.state';
+import { ApplState } from './appl.state';
 
-export const evenementsReducer = (state: ConfState, action: EvenementsActions): ConfState => {
+export const evenementsReducer = (state: ApplState, action: EvenementsActions): ApplState => {
   switch (action.type) {
     case 'set-conf-loading': {
       return { ...state, loading: action.isLoading };
@@ -16,7 +16,7 @@ export const evenementsReducer = (state: ConfState, action: EvenementsActions): 
       return { ...state, favoris: [...(state.favoris).filter(x => x !== action.evenementId)] };
     }
     case 'update-filtered-tracks': {
-      return { ...state, filteredTracks: action.filteredTracks };
+      return { ...state, filteredTags: action.filteredTags };
     }
     case 'set-search-text': {
       return { ...state, searchText: action.searchText };

@@ -1,10 +1,10 @@
-import { getConfData } from '../dataApi';
+import { getApplData } from '../dataApi';
 import { ActionType } from '../../util/types';
-import { ConfState } from './conf.state';
+import { ApplState } from './appl.state';
 
-export const loadConfData = () => async (dispatch: React.Dispatch<any>) => {
+export const loadApplData = () => async (dispatch: React.Dispatch<any>) => {
   dispatch(setLoading(true));
-  const data = await getConfData();
+  const data = await getApplData();
   dispatch(setData(data));
   dispatch(setLoading(false));
 }
@@ -14,7 +14,7 @@ export const setLoading = (isLoading: boolean) => ({
   isLoading
 } as const);
 
-export const setData = (data: Partial<ConfState>) => ({
+export const setData = (data: Partial<ApplState>) => ({
   type: 'set-conf-data',
   data
 } as const);
@@ -29,9 +29,9 @@ export const removeFavorite = (evenementId: number) => ({
   evenementId
 } as const);
 
-export const updateFilteredTracks = (filteredTracks: string[]) => ({
+export const updateFilteredTags = (filteredTags: string[]) => ({
   type: 'update-filtered-tracks', 
-  filteredTracks 
+  filteredTags 
 } as const);
 
 export const setSearchText = (searchText?: string) => ({ 
@@ -49,6 +49,6 @@ export type EvenementsActions =
   | ActionType<typeof setData>
   | ActionType<typeof addFavorite>
   | ActionType<typeof removeFavorite>
-  | ActionType<typeof updateFilteredTracks>
+  | ActionType<typeof updateFilteredTags>
   | ActionType<typeof setSearchText>
   | ActionType<typeof setMenuEnabled>

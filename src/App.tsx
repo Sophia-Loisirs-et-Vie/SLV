@@ -26,7 +26,7 @@ import './theme/variables.css';
 import MainTabs from './pages/MainTabs';
 import { connect } from './data/connect';
 import { AppContextProvider } from './data/AppContext';
-import { loadConfData } from './data/evenements/evenements.actions';
+import { loadApplData } from './data/evenements/evenements.actions';
 import { setIsLoggedIn, setUtilisateur, loadUserData } from './data/user/user.actions';
 import Compte from './pages/Compte';
 import Connexion from './pages/Connexion';
@@ -50,7 +50,7 @@ interface StateProps {
 }
 
 interface DispatchProps {
-  loadConfData: typeof loadConfData;
+  loadApplData: typeof loadApplData;
   loadUserData: typeof loadUserData;
   setIsLoggedIn: typeof setIsLoggedIn;
   setUtilisateur: typeof setUtilisateur;
@@ -58,11 +58,11 @@ interface DispatchProps {
 
 interface IonicAppProps extends StateProps, DispatchProps { }
 
-const IonicApp: React.FC<IonicAppProps> = ({ darkMode, agenda, setIsLoggedIn, setUtilisateur, loadConfData, loadUserData }) => {
+const IonicApp: React.FC<IonicAppProps> = ({ darkMode, agenda, setIsLoggedIn, setUtilisateur, loadApplData, loadUserData }) => {
 
   useEffect(() => {
     loadUserData();
-    loadConfData();
+    loadApplData();
     // eslint-disable-next-line
   }, []);
 
@@ -102,6 +102,6 @@ const IonicAppConnected = connect<{}, StateProps, DispatchProps>({
     darkMode: state.user.darkMode,
     agenda: state.data.agenda
   }),
-  mapDispatchToProps: { loadConfData, loadUserData, setIsLoggedIn, setUtilisateur },
+  mapDispatchToProps: { loadApplData, loadUserData, setIsLoggedIn, setUtilisateur },
   component: IonicApp
 });
