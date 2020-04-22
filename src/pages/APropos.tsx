@@ -66,7 +66,20 @@ const APropos: React.FC<AProposProps> = () => {
           <h3 className="ion-padding-top ion-padding-start">A propos</h3>
 
           <p className="ion-padding-start ion-padding-end">
-            The Ionic Conference is a one-day conference on { displayDate(conferenceDate, 'mediumDate') } featuring talks from the Ionic team. It is focused on Ionic applications being built with Ionic Framework. This includes migrating apps to the latest version of the framework, Angular concepts, Webpack, Sass, and many other technologies used in Ionic 2. Tickets are completely sold out, and we’re expecting more than 1000 developers – making this the largest Ionic conference ever!
+          Application de l'association SLV 
+
+          L'association "Sophia, Loisirs & Vie" ★ SLV ★ de Valbonne Sophia Antiplis développe cette application. 
+          Elle facilite vos échanges avec l'association et donne toutes les infos utiles lors de la crise sanitaire du Covid19.
+          Vous avez du temps, envie d'aider nous vous mettons en contact et nous vous guidons dans vos actions ! 
+            Vous pourrez ainsi : 
+              * Prendre contact avec l'association
+              * Consulter les plannings d'ouverture
+              * Savoir comment aider 
+
+            Développée par les bénévoles vos retours et commentaires sont importants ! 
+            Bienvenue et à vous de jouer !
+
+            Avril 2020 - Sophia Antipolis 
           </p>
 
           <h3 className="ion-padding-top ion-padding-start">Details</h3>
