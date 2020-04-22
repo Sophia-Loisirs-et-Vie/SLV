@@ -67,7 +67,6 @@ const APropos: React.FC<AProposProps> = () => {
 
           <p className="ion-padding-start ion-padding-end">
           Application de l'association SLV 
-
           L'association "Sophia, Loisirs & Vie" ★ SLV ★ de Valbonne Sophia Antiplis développe cette application. 
           Elle facilite vos échanges avec l'association et donne toutes les infos utiles lors de la crise sanitaire du Covid19.
           Vous avez du temps, envie d'aider nous vous mettons en contact et nous vous guidons dans vos actions ! 
@@ -77,9 +76,7 @@ const APropos: React.FC<AProposProps> = () => {
               * Savoir comment aider 
 
             Développée par les bénévoles vos retours et commentaires sont importants ! 
-            Bienvenue et à vous de jouer !
-
-            Avril 2020 - Sophia Antipolis 
+            Bienvenue et à vous de jouer ! 
           </p>
 
           <h3 className="ion-padding-top ion-padding-start">Details</h3>
